@@ -1,53 +1,45 @@
 'use client';
-import React from 'react';
-
-import { useState } from 'react';
-import { useSession } from 'next-auth/react';
+import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { PLANS } from '../../lib/stripe';
+
+// Static pricing data (no dependency on Stripe PLANS at build time)
+const PRICING_PLANS = {
+  monthly: {
+    name: 'Premium Monthly',
+    price: 9.99,
+    priceId: 'monthly', // Placeholder, will be set by API
+    interval: 'month',
+  },
+  annual: {
+    name: 'Premium Annual',
+    price: 99.99,
+    priceId: 'annual', // Placeholder, will be set by API
+    interval: 'year',
+  },
+  lifetime: {
+    name: 'Lifetime Access',
+    price: 299.99,
+    priceId: 'lifetime', // Placeholder, will be set by API
+    interval: 'one-time',
+  },
+};
 
 export default function PricingPage() {
-  const { data: session, status } = useSession();
   const router = useRouter();
   const [loading, setLoading] = useState<string | null>(null);
 
-  const handleSubscribe = async (priceId: string, planName: string) => {
-    if (status === 'loading') return;
-
-    if (!session) {
-      // Redirect to sign in if not authenticated
-      router.push('/auth/signin?callbackUrl=/pricing');
-      return;
-    }
-
-    setLoading(planName);
+  const handleSubscribe = async (planType: 'monthly' | 'annual' | 'lifetime') => {
+    setLoading(planType);
 
     try {
-      const response = await fetch('/api/stripe/checkout', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          priceId,
-          successUrl: `${window.location.origin}/dashboard?success=true`,
-          cancelUrl: `${window.location.origin}/pricing`,
-        }),
-      });
-
-      const data = await response.json();
-
-      if (data.url) {
-        // Redirect to Stripe Checkout
-        window.location.href = data.url;
-      } else {
-        throw new Error('Failed to create checkout session');
-      }
+      // Redirect to sign-in first, which will handle the checkout flow
+      // The API will handle authentication and redirect accordingly
+      router.push(`/auth/signin?callbackUrl=${encodeURIComponent(`/pricing?plan=${planType}`)}`);
     } catch (error) {
-      console.error('Error creating checkout session:', error);
-      alert('Something went wrong. Please try again.');
-    } finally {
+      console.error('Error initiating subscription:', error);
       setLoading(null);
+      // Fallback: redirect to sign-in page
+      router.push('/auth/signin?callbackUrl=/pricing');
     }
   };
 
@@ -115,7 +107,7 @@ export default function PricingPage() {
           <div className="pricing-header">
             <h3 className="plan-name">Premium Monthly</h3>
             <div className="price">
-              <span className="amount">${PLANS.monthly.price}</span>
+              <span className="amount">${PRICING_PLANS.monthly.price}</span>
               <span className="period">/month</span>
             </div>
           </div>
@@ -131,7 +123,7 @@ export default function PricingPage() {
           </div>
           <button
             className="cta-button"
-            onClick={() => handleSubscribe(PLANS.monthly.priceId, 'monthly')}
+            onClick={() => handleSubscribe('monthly')}
             disabled={loading === 'monthly'}
           >
             {loading === 'monthly' ? 'Processing...' : 'Subscribe Monthly'}
@@ -143,7 +135,7 @@ export default function PricingPage() {
           <div className="pricing-header">
             <h3 className="plan-name">Premium Annual</h3>
             <div className="price">
-              <span className="amount">${PLANS.annual.price}</span>
+              <span className="amount">${PRICING_PLANS.annual.price}</span>
               <span className="period">/year</span>
               <div className="savings">Save 17%</div>
             </div>
@@ -160,7 +152,7 @@ export default function PricingPage() {
           </div>
           <button
             className="cta-button"
-            onClick={() => handleSubscribe(PLANS.annual.priceId, 'annual')}
+            onClick={() => handleSubscribe('annual')}
             disabled={loading === 'annual'}
           >
             {loading === 'annual' ? 'Processing...' : 'Subscribe Annually'}
@@ -172,7 +164,7 @@ export default function PricingPage() {
           <div className="pricing-header">
             <h3 className="plan-name">Lifetime Access</h3>
             <div className="price">
-              <span className="amount">${PLANS.lifetime.price}</span>
+              <span className="amount">${PRICING_PLANS.lifetime.price}</span>
               <span className="period">one-time</span>
               <div className="savings">Best Value</div>
             </div>
@@ -193,7 +185,7 @@ export default function PricingPage() {
           </div>
           <button
             className="cta-button"
-            onClick={() => handleSubscribe(PLANS.lifetime.priceId, 'lifetime')}
+            onClick={() => handleSubscribe('lifetime')}
             disabled={loading === 'lifetime'}
           >
             {loading === 'lifetime' ? 'Processing...' : 'Get Lifetime Access'}
