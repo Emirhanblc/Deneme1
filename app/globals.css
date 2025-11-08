@@ -25,6 +25,14 @@
   --primary-dark: #0f766e;
 }
 
+/* Smooth Transitions */
+* {
+  transition-property:
+    background-color, color, border-color, box-shadow, transform;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-out;
+}
+
 /* Base Typography Enhancements - Dark Mode Only */
 @layer base {
   body {

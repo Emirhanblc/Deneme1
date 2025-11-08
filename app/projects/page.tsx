@@ -72,13 +72,13 @@ export default function ProjectsPage() {
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'completed':
-        return 'bg-green-100 text-green-800';
+        return 'bg-green-950/30 text-green-400';
       case 'active':
-        return 'bg-blue-100 text-blue-800';
+        return 'bg-sky-950/30 text-sky-400';
       case 'planning':
-        return 'bg-yellow-100 text-yellow-800';
+        return 'bg-yellow-950/30 text-yellow-400';
       default:
-        return 'bg-gray-100 text-gray-800';
+        return 'bg-slate-800 text-slate-400';
     }
   };
 
@@ -96,22 +96,22 @@ export default function ProjectsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-white dark:bg-slate-950 py-20">
+    <div className="min-h-screen bg-slate-950 py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header with Technical Background */}
-        <div className="relative overflow-hidden rounded-2xl bg-slate-900 dark:bg-slate-900 p-12 mb-16 animate-fade-in">
+        <div className="relative overflow-hidden rounded-2xl bg-slate-900 p-12 mb-16 animate-fade-in">
           {/* Subtle Grid Pattern */}
           <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:24px_24px]" />
           <div className="absolute inset-0 bg-gradient-to-br from-slate-900/50 via-transparent to-slate-900/50" />
 
           <div className="relative text-center">
             <div className="flex justify-center gap-4 mb-6 opacity-40">
-              <Server className="w-6 h-6 text-primary-400" />
-              <Terminal className="w-6 h-6 text-primary-400" />
-              <GitBranch className="w-6 h-6 text-primary-400" />
+              <Server className="w-6 h-6 text-sky-400" />
+              <Terminal className="w-6 h-6 text-sky-400" />
+              <GitBranch className="w-6 h-6 text-sky-400" />
             </div>
 
-            <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-6">
+            <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-50 tracking-tight mb-6">
               Projeler
             </h1>
             <p className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed-plus">
@@ -134,7 +134,7 @@ export default function ProjectsPage() {
             return (
               <div
                 key={project.id}
-                className="group rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 p-4 md:p-5 shadow-sm hover:bg-slate-50 hover:text-slate-900 dark:hover:bg-slate-800 dark:hover:text-slate-100 hover:-translate-y-0.5 hover:shadow-sm transition-all duration-200 ease-in-out animate-slide-up"
+                className="group rounded-2xl border border-slate-800 bg-slate-900 text-slate-100 p-4 md:p-5 shadow-[0_8px_30px_rgba(15,23,42,0.45)] hover:bg-slate-800 hover:text-slate-100 hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(15,23,42,0.65)] transition-all duration-200 ease-out animate-slide-up"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 {/* Status Badge */}
@@ -148,12 +148,12 @@ export default function ProjectsPage() {
                 </div>
 
                 {/* Title */}
-                <h3 className="font-heading text-2xl font-bold text-slate-900 dark:text-slate-100 mb-4 leading-tight group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+                <h3 className="font-heading text-2xl font-bold text-slate-100 mb-4 leading-tight group-hover:text-sky-400 transition-colors">
                   {project.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed-plus line-clamp-3 group-hover:text-slate-600 dark:group-hover:text-slate-400">
+                <p className="text-slate-300 mb-6 leading-relaxed-plus line-clamp-3 group-hover:text-slate-200">
                   {project.description}
                 </p>
 
@@ -167,14 +167,14 @@ export default function ProjectsPage() {
                 </div>
 
                 {/* Action Buttons */}
-                <div className="flex flex-col gap-3 pt-6 border-t border-slate-100 dark:border-slate-800">
+                <div className="flex flex-col gap-3 pt-6 border-t border-slate-800">
                   <div className="flex gap-3">
                     {project.githubUrl && !isPlaceholder(project.githubUrl) && (
                       <Link
                         href={project.githubUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 border-2 border-slate-200 dark:border-slate-700 text-sm font-semibold rounded-lg text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 hover:border-primary-300 dark:hover:border-primary-500 transition-all duration-200"
+                        className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 border-2 border-slate-700 text-sm font-semibold rounded-lg text-slate-300 bg-slate-800 hover:bg-slate-700 hover:border-sky-500 transition-all duration-200"
                       >
                         <Github className="w-4 h-4" />
                         GitHub
@@ -185,7 +185,7 @@ export default function ProjectsPage() {
                         href={project.demoUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 border-2 border-transparent text-sm font-semibold rounded-lg text-white bg-primary-600 hover:bg-primary-700 transition-all duration-200"
+                        className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 border-2 border-transparent text-sm font-semibold rounded-lg text-white bg-sky-600 hover:bg-sky-700 transition-all duration-200"
                       >
                         <ExternalLink className="w-4 h-4" />
                         Canlı Demo
@@ -193,7 +193,7 @@ export default function ProjectsPage() {
                     )}
                     {(!project.githubUrl || isPlaceholder(project.githubUrl)) &&
                       !project.demoUrl && (
-                        <span className="flex-1 inline-flex items-center justify-center px-4 py-2.5 border-2 border-slate-200 dark:border-slate-700 text-sm font-medium rounded-lg text-slate-400 dark:text-slate-500 bg-slate-50 dark:bg-slate-800">
+                        <span className="flex-1 inline-flex items-center justify-center px-4 py-2.5 border-2 border-slate-700 text-sm font-medium rounded-lg text-slate-500 bg-slate-800">
                           Yakında...
                         </span>
                       )}

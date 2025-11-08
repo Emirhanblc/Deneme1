@@ -97,12 +97,12 @@ export default function Home() {
       {/* Recent Posts Section - Modern Card Grid */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="flex items-center justify-between mb-12">
-          <h2 className="font-heading text-3xl sm:text-4xl font-bold text-neutral-900 tracking-tight">
+          <h2 className="font-heading text-3xl sm:text-4xl font-bold text-slate-50 tracking-tight">
             Son Yazılar
           </h2>
           <Link
             href="/blog"
-            className="text-primary-600 hover:text-primary-700 font-semibold flex items-center gap-2 group"
+            className="text-sky-400 hover:text-sky-300 font-semibold flex items-center gap-2 group transition-colors"
           >
             Tüm yazılar
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -115,27 +115,27 @@ export default function Home() {
             return (
               <article
                 key={index}
-                className="group rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 p-4 md:p-5 shadow-sm hover:bg-slate-50 hover:text-slate-900 dark:hover:bg-slate-800 dark:hover:text-slate-100 hover:-translate-y-0.5 hover:shadow-sm transition-all duration-200 ease-in-out animate-slide-up"
+                className="group rounded-2xl border border-slate-800 bg-slate-900 text-slate-100 p-4 md:p-5 shadow-[0_8px_30px_rgba(15,23,42,0.45)] hover:bg-slate-800 hover:text-slate-100 hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(15,23,42,0.65)] transition-all duration-200 ease-out animate-slide-up"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 {/* Icon Badge */}
-                <div className="inline-flex items-center gap-2 mb-5 px-3 py-2 rounded-lg bg-primary-50 dark:bg-primary-950/30 text-primary-600 dark:text-primary-400">
+                <div className="inline-flex items-center gap-2 mb-5 px-3 py-2 rounded-lg bg-sky-950/30 text-sky-400">
                   <IconComponent className="w-5 h-5" />
                   <span className="text-xs font-mono font-semibold uppercase tracking-wider">
                     {post.category}
                   </span>
                 </div>
 
-                <h3 className="font-heading text-2xl font-bold text-slate-900 dark:text-slate-100 mb-3 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors leading-tight">
+                <h3 className="font-heading text-2xl font-bold text-slate-100 mb-3 group-hover:text-sky-400 transition-colors leading-tight">
                   <Link href={post.href}>{post.title}</Link>
                 </h3>
 
-                <p className="text-slate-600 dark:text-slate-400 group-hover:text-slate-600 dark:group-hover:text-slate-400 mb-6 leading-relaxed-plus line-clamp-2">
+                <p className="text-slate-300 group-hover:text-slate-200 mb-6 leading-relaxed line-clamp-2">
                   {post.excerpt}
                 </p>
 
-                <div className="flex items-center justify-between pt-4 border-t border-slate-100 dark:border-slate-800">
-                  <div className="flex items-center gap-4 text-sm text-slate-500 dark:text-slate-500 group-hover:text-slate-500 dark:group-hover:text-slate-500">
+                <div className="flex items-center justify-between pt-4 border-t border-slate-800">
+                  <div className="flex items-center gap-4 text-sm text-slate-400">
                     <time className="flex items-center gap-1.5 font-medium">
                       <Clock className="w-4 h-4" />
                       {post.date}
@@ -147,7 +147,7 @@ export default function Home() {
                   </div>
                   <Link
                     href={post.href}
-                    className="text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 font-semibold text-sm flex items-center gap-1.5 group-hover:gap-2.5 transition-all"
+                    className="text-sky-400 hover:text-sky-300 font-semibold text-sm flex items-center gap-1.5 group-hover:gap-2.5 transition-all"
                   >
                     Devamını oku
                     <ArrowRight className="w-4 h-4" />

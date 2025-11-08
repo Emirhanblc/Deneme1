@@ -49,22 +49,22 @@ export default function BlogPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-white dark:bg-slate-950 py-20 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-slate-950 py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Header Section with Technical Background */}
-        <div className="relative overflow-hidden rounded-2xl bg-slate-900 dark:bg-slate-900 p-12 mb-16 animate-fade-in">
+        <div className="relative overflow-hidden rounded-2xl bg-slate-900 p-12 mb-16 animate-fade-in">
           {/* Subtle Grid Pattern */}
           <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:24px_24px]" />
           <div className="absolute inset-0 bg-gradient-to-br from-slate-900/50 via-transparent to-slate-900/50" />
 
           <div className="relative text-center">
             <div className="flex justify-center gap-4 mb-6 opacity-40">
-              <Shield className="w-6 h-6 text-primary-400" />
-              <Network className="w-6 h-6 text-primary-400" />
-              <Server className="w-6 h-6 text-primary-400" />
+              <Shield className="w-6 h-6 text-sky-400" />
+              <Network className="w-6 h-6 text-sky-400" />
+              <Server className="w-6 h-6 text-sky-400" />
             </div>
 
-            <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-6">
+            <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-50 tracking-tight mb-6">
               Tüm Yazılar
             </h1>
             <p className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed-plus">
@@ -81,11 +81,11 @@ export default function BlogPage() {
             return (
               <article
                 key={index}
-                className="group rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 p-4 md:p-5 shadow-sm hover:bg-slate-50 hover:text-slate-900 dark:hover:bg-slate-800 dark:hover:text-slate-100 hover:-translate-y-0.5 hover:shadow-sm transition-all duration-200 ease-in-out animate-slide-up"
+                className="group rounded-2xl border border-slate-800 bg-slate-900 text-slate-100 p-4 md:p-5 shadow-[0_8px_30px_rgba(15,23,42,0.45)] hover:bg-slate-800 hover:text-slate-100 hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(15,23,42,0.65)] transition-all duration-200 ease-out animate-slide-up"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 {/* Icon Badge */}
-                <div className="inline-flex items-center gap-2 mb-6 px-3 py-2 rounded-lg bg-primary-50 dark:bg-primary-950/30 text-primary-600 dark:text-primary-400">
+                <div className="inline-flex items-center gap-2 mb-6 px-3 py-2 rounded-lg bg-sky-950/30 text-sky-400">
                   <IconComponent className="w-5 h-5" />
                   <span className="text-xs font-mono font-semibold uppercase tracking-wider">
                     {post.category}
@@ -93,18 +93,18 @@ export default function BlogPage() {
                 </div>
 
                 {/* Title */}
-                <h2 className="font-heading text-2xl font-bold text-slate-900 dark:text-slate-100 mb-4 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors leading-tight">
+                <h2 className="font-heading text-2xl font-bold text-slate-100 mb-4 group-hover:text-sky-400 transition-colors leading-tight">
                   <Link href={post.href}>{post.title}</Link>
                 </h2>
 
                 {/* Excerpt */}
-                <p className="text-slate-600 dark:text-slate-400 group-hover:text-slate-600 dark:group-hover:text-slate-400 mb-6 leading-relaxed-plus line-clamp-2">
+                <p className="text-slate-300 group-hover:text-slate-200 mb-6 leading-relaxed-plus line-clamp-2">
                   {post.excerpt}
                 </p>
 
                 {/* Footer */}
-                <div className="flex items-center justify-between pt-6 border-t border-slate-100 dark:border-slate-800">
-                  <div className="flex items-center gap-4 text-sm text-slate-500 dark:text-slate-500 group-hover:text-slate-500 dark:group-hover:text-slate-500">
+                <div className="flex items-center justify-between pt-6 border-t border-slate-800">
+                  <div className="flex items-center gap-4 text-sm text-slate-400">
                     <time className="flex items-center gap-1.5 font-medium">
                       <Calendar className="w-4 h-4" />
                       {post.date}
@@ -116,7 +116,7 @@ export default function BlogPage() {
                   </div>
                   <Link
                     href={post.href}
-                    className="text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 font-semibold text-sm flex items-center gap-1.5 group-hover:gap-2.5 transition-all"
+                    className="text-sky-400 hover:text-sky-300 font-semibold text-sm flex items-center gap-1.5 group-hover:gap-2.5 transition-all"
                   >
                     Devamını oku
                     <ArrowRight className="w-4 h-4" />
