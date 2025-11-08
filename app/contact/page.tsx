@@ -10,6 +10,7 @@ import {
 
 export default function ContactPage() {
   const searchParams = useSearchParams();
+  const [mounted, setMounted] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -21,9 +22,10 @@ export default function ContactPage() {
   >('idle');
   const [errorMessage, setErrorMessage] = useState('');
 
-  // Handle query parameter for topic preselection
+  // Handle hydration and query parameter for topic preselection
   useEffect(() => {
-    const type = searchParams.get('type');
+    setMounted(true);
+    const type = searchParams?.get('type');
     if (type === 'glossary') {
       setFormData((prev) => ({ ...prev, subject: 'glossary' }));
     }
@@ -69,13 +71,30 @@ export default function ContactPage() {
     }
   };
 
+  if (!mounted) {
+    // Prevent hydration mismatch
+    return (
+      <div className="min-h-screen bg-white dark:bg-gray-900 py-8">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+              İletişim
+            </h1>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <div className="min-h-screen bg-background py-8">
+    <div className="min-h-screen bg-white dark:bg-gray-900 py-8">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-foreground mb-4">İletişim</h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            İletişim
+          </h1>
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             Proje teklifleri, teknik sorular veya open source katkıları için
             benimle iletişime geçebilirsiniz.
           </p>
@@ -84,8 +103,8 @@ export default function ContactPage() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Contact Information */}
           <div className="lg:col-span-1">
-            <div className="bg-card border border-border rounded-lg p-6">
-              <h2 className="text-2xl font-bold text-foreground mb-6">
+            <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6 shadow-sm">
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
                 İletişim Bilgileri
               </h2>
 
@@ -93,7 +112,7 @@ export default function ContactPage() {
                 <div className="flex items-start">
                   <div className="flex-shrink-0">
                     <svg
-                      className="w-6 h-6 text-primary"
+                      className="w-6 h-6 text-blue-600 dark:text-blue-400"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -107,16 +126,16 @@ export default function ContactPage() {
                     </svg>
                   </div>
                   <div className="ml-3">
-                    <h3 className="text-lg font-semibold text-foreground">
+                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
                       Email
                     </h3>
                     <a
                       href={`mailto:${CONTACT_EMAIL}`}
-                      className="text-muted-foreground hover:text-primary"
+                      className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
                     >
                       {CONTACT_EMAIL}
                     </a>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-sm text-gray-500 dark:text-gray-400">
                       Genellikle 24 saat içinde yanıt veriyorum
                     </p>
                   </div>
@@ -125,7 +144,7 @@ export default function ContactPage() {
                 <div className="flex items-start">
                   <div className="flex-shrink-0">
                     <svg
-                      className="w-6 h-6 text-primary"
+                      className="w-6 h-6 text-blue-600 dark:text-blue-400"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -139,18 +158,18 @@ export default function ContactPage() {
                     </svg>
                   </div>
                   <div className="ml-3">
-                    <h3 className="text-lg font-semibold text-foreground">
+                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
                       LinkedIn
                     </h3>
                     <a
                       href={CONTACT_LINKEDIN}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-muted-foreground hover:text-primary"
+                      className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
                     >
                       {CONTACT_LINKEDIN.replace('https://www.', '')}
                     </a>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-sm text-gray-500 dark:text-gray-400">
                       Profesyonel bağlantılar için
                     </p>
                   </div>
@@ -159,7 +178,7 @@ export default function ContactPage() {
                 <div className="flex items-start">
                   <div className="flex-shrink-0">
                     <svg
-                      className="w-6 h-6 text-primary"
+                      className="w-6 h-6 text-blue-600 dark:text-blue-400"
                       fill="currentColor"
                       viewBox="0 0 24 24"
                     >
@@ -167,29 +186,29 @@ export default function ContactPage() {
                     </svg>
                   </div>
                   <div className="ml-3">
-                    <h3 className="text-lg font-semibold text-foreground">
+                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
                       GitHub
                     </h3>
                     <a
                       href={CONTACT_GITHUB}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-muted-foreground hover:text-primary"
+                      className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
                     >
                       {CONTACT_GITHUB.replace('https://github.com/', '')}
                     </a>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-sm text-gray-500 dark:text-gray-400">
                       Open source projeler ve katkılar
                     </p>
                   </div>
                 </div>
               </div>
 
-              <div className="mt-8 p-4 bg-accent/10 rounded-lg">
-                <h4 className="font-semibold text-foreground mb-2">
+              <div className="mt-8 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                <h4 className="font-semibold text-gray-900 dark:text-white mb-2">
                   Yanıt Süresi
                 </h4>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-sm text-gray-600 dark:text-gray-300">
                   Genellikle 24 saat içinde yanıt veriyorum. Acil durumlarda
                   LinkedIn üzerinden mesaj atabilirsiniz.
                 </p>
@@ -199,20 +218,20 @@ export default function ContactPage() {
 
           {/* Contact Form */}
           <div className="lg:col-span-2">
-            <div className="bg-card border border-border rounded-lg p-6">
-              <h2 className="text-2xl font-bold text-foreground mb-6">
+            <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6 shadow-sm">
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
                 Mesaj Gönder
               </h2>
 
               {status === 'success' && (
-                <div className="mb-6 p-4 bg-green-100 border border-green-400 text-green-700 rounded">
+                <div className="mb-6 p-4 bg-green-100 dark:bg-green-900/20 border border-green-400 dark:border-green-700 text-green-700 dark:text-green-300 rounded">
                   Mesajınız başarıyla gönderildi! En kısa sürede size dönüş
                   yapacağım.
                 </div>
               )}
 
               {status === 'error' && (
-                <div className="mb-6 p-4 bg-red-100 border border-red-400 text-red-700 rounded">
+                <div className="mb-6 p-4 bg-red-100 dark:bg-red-900/20 border border-red-400 dark:border-red-700 text-red-700 dark:text-red-300 rounded">
                   {errorMessage ||
                     'Mesajınız gönderilemedi. Lütfen tekrar deneyin.'}
                 </div>
@@ -223,7 +242,7 @@ export default function ContactPage() {
                   <div>
                     <label
                       htmlFor="name"
-                      className="block text-sm font-medium text-foreground mb-2"
+                      className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
                     >
                       Adınız *
                     </label>
@@ -234,7 +253,7 @@ export default function ContactPage() {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full px-3 py-2 border border-border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary bg-background text-foreground"
+                      className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
                       placeholder="Adınızı girin"
                     />
                   </div>
@@ -242,7 +261,7 @@ export default function ContactPage() {
                   <div>
                     <label
                       htmlFor="email"
-                      className="block text-sm font-medium text-foreground mb-2"
+                      className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
                     >
                       Email Adresiniz *
                     </label>
@@ -253,7 +272,7 @@ export default function ContactPage() {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full px-3 py-2 border border-border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary bg-background text-foreground"
+                      className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
                       placeholder="email@example.com"
                     />
                   </div>
@@ -262,19 +281,18 @@ export default function ContactPage() {
                 <div>
                   <label
                     htmlFor="subject"
-                    className="block text-sm font-medium text-foreground mb-2"
+                    className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
                   >
-                    Konu *
+                    Konu
                   </label>
                   <select
                     id="subject"
                     name="subject"
                     value={formData.subject}
                     onChange={handleChange}
-                    required
-                    className="w-full px-3 py-2 border border-border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary bg-background text-foreground"
+                    className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
                   >
-                    <option value="">Konu seçin</option>
+                    <option value="">Konu seçin (isteğe bağlı)</option>
                     <option value="project">Proje Teklifi</option>
                     <option value="technical">Teknik Soru</option>
                     <option value="collaboration">İş Birliği</option>
@@ -287,7 +305,7 @@ export default function ContactPage() {
                 <div>
                   <label
                     htmlFor="message"
-                    className="block text-sm font-medium text-foreground mb-2"
+                    className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
                   >
                     Mesajınız *
                   </label>
@@ -298,7 +316,7 @@ export default function ContactPage() {
                     onChange={handleChange}
                     required
                     rows={6}
-                    className="w-full px-3 py-2 border border-border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary bg-background text-foreground resize-vertical"
+                    className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white resize-vertical"
                     placeholder="Mesajınızı detaylı bir şekilde yazın..."
                   />
                 </div>
@@ -307,7 +325,7 @@ export default function ContactPage() {
                   <button
                     type="submit"
                     disabled={status === 'loading'}
-                    className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                    className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                   >
                     {status === 'loading' ? (
                       <>
@@ -340,59 +358,12 @@ export default function ContactPage() {
                 </div>
 
                 <div className="text-center">
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-sm text-gray-500 dark:text-gray-400">
                     * ile işaretli alanlar zorunludur. Gizlilik politikamıza
                     uygun şekilde verileriniz korunacaktır.
                   </p>
                 </div>
               </form>
-            </div>
-          </div>
-        </div>
-
-        {/* FAQ Section */}
-        <div className="mt-12 bg-card border border-border rounded-lg p-8">
-          <h2 className="text-2xl font-bold text-foreground mb-6 text-center">
-            Sıkça Sorulan Sorular
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
-              <h3 className="text-lg font-semibold text-foreground mb-2">
-                Ne tür projelerde iş birliği yapıyorsunuz?
-              </h3>
-              <p className="text-muted-foreground">
-                Özellikle sistem yönetimi, backend geliştirme ve DevOps
-                projelerinde iş birliği yapıyorum. Open source katkılar ve
-                teknik danışmanlık da sunuyorum.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold text-foreground mb-2">
-                Ücretli danışmanlık hizmeti veriyor musunuz?
-              </h3>
-              <p className="text-muted-foreground">
-                Evet, VMware, backup çözümleri ve network güvenliği konularında
-                ücretli danışmanlık hizmeti veriyorum. Detaylar için iletişime
-                geçebilirsiniz.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold text-foreground mb-2">
-                Open source projelere nasıl katkıda bulunabilirim?
-              </h3>
-              <p className="text-muted-foreground">
-                GitHub profilimdeki projelere issue açabilir, pull request
-                gönderebilir veya yeni özellik önerilerinde bulunabilirsiniz.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold text-foreground mb-2">
-                Teknik sorularım için ne yapmalıyım?
-              </h3>
-              <p className="text-muted-foreground">
-                Öncelikle blog yazılarımı inceleyin. Cevabını bulamadığınız
-                sorular için iletişim formunu kullanabilirsiniz.
-              </p>
             </div>
           </div>
         </div>

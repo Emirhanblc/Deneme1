@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
+import ScriptCard from '../../components/ScriptCard';
 
 // Mock data - in production, this would come from GitHub or Headless CMS
 const scripts = [
@@ -11,6 +12,8 @@ const scripts = [
       'VMware vSphere ortamında sanal makinelerin otomatik yedeklenmesi için Bash script.',
     language: 'bash',
     githubUrl: 'https://github.com/yourusername/vmware-backup',
+    // Note: In template literals, ${} is for interpolation. 
+    // To output literal ${}, use \${} (single backslash escapes the interpolation)
     code: `#!/bin/bash
 
 # VMware VM Backup Script
@@ -278,42 +281,15 @@ if __name__ == "__main__":
 ];
 
 export default function ScriptsPage() {
-  const [copiedScript, setCopiedScript] = useState<string | null>(null);
-
-  const copyToClipboard = async (code: string, scriptId: string) => {
-    try {
-      await navigator.clipboard.writeText(code);
-      setCopiedScript(scriptId);
-      setTimeout(() => setCopiedScript(null), 2000);
-    } catch (err) {
-      console.error('Failed to copy text: ', err);
-    }
-  };
-
-  const getLanguageColor = (language: string) => {
-    switch (language.toLowerCase()) {
-      case 'bash':
-        return 'bg-yellow-100 text-yellow-800';
-      case 'python':
-        return 'bg-blue-100 text-blue-800';
-      case 'javascript':
-        return 'bg-yellow-100 text-yellow-800';
-      case 'typescript':
-        return 'bg-blue-100 text-blue-800';
-      default:
-        return 'bg-gray-100 text-gray-800';
-    }
-  };
-
   return (
-    <div className="min-h-screen bg-background py-8">
+    <div className="min-h-screen bg-white dark:bg-gray-900 py-8">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-foreground mb-4">
+          <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
             Scripts Hub
           </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             Production sistemlerde kullandığım otomasyon script'leri. Bash,
             Python ve diğer dillerde geliştirilmiş pratik çözümler.
           </p>
@@ -322,116 +298,27 @@ export default function ScriptsPage() {
         {/* Scripts Grid */}
         <div className="space-y-8">
           {scripts.map((script) => (
-            <div
+            <ScriptCard
               key={script.id}
-              className="bg-card border border-border rounded-lg overflow-hidden"
-            >
-              {/* Script Header */}
-              <div className="p-6 border-b border-border">
-                <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
-                  <div>
-                    <h2 className="text-2xl font-bold text-foreground mb-2">
-                      {script.title}
-                    </h2>
-                    <p className="text-muted-foreground mb-4">
-                      {script.description}
-                    </p>
-                  </div>
-                  <div className="flex items-center space-x-2 mb-4 md:mb-0">
-                    <span
-                      className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${getLanguageColor(script.language)}`}
-                    >
-                      {script.language}
-                    </span>
-                  </div>
-                </div>
-
-                {/* Tags */}
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {script.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary/10 text-primary"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                {/* Usage and Requirements */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
-                  <div>
-                    <h4 className="font-semibold text-foreground mb-2">
-                      Kullanım:
-                    </h4>
-                    {Array.isArray(script.usage) ? (
-                      <ul className="list-disc list-inside space-y-1 text-muted-foreground">
-                        {script.usage.map((item, idx) => (
-                          <li key={idx}>{item}</li>
-                        ))}
-                      </ul>
-                    ) : (
-                      <code className="bg-accent px-2 py-1 rounded text-foreground">
-                        {script.usage}
-                      </code>
-                    )}
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-foreground mb-2">
-                      Gereksinimler:
-                    </h4>
-                    {Array.isArray(script.requirements) ? (
-                      <ul className="list-disc list-inside space-y-1 text-muted-foreground">
-                        {script.requirements.map((req, idx) => (
-                          <li key={idx}>{req}</li>
-                        ))}
-                      </ul>
-                    ) : (
-                      <p className="text-muted-foreground">
-                        {script.requirements}
-                      </p>
-                    )}
-                  </div>
-                </div>
-
-                {/* GitHub Link */}
-                {script.githubUrl && (
-                  <div className="mt-4">
-                    <a
-                      href={script.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-sm text-blue-600 hover:underline inline-flex items-center"
-                    >
-                      View on GitHub →
-                    </a>
-                  </div>
-                )}
-              </div>
-
-              {/* Code Block */}
-              <div className="relative">
-                <pre className="bg-gray-900 text-gray-100 p-6 overflow-x-auto text-sm">
-                  <code>{script.code}</code>
-                </pre>
-                <button
-                  onClick={() => copyToClipboard(script.code, script.id)}
-                  className="absolute top-4 right-4 bg-gray-700 hover:bg-gray-600 text-white px-3 py-1 rounded text-sm transition-colors"
-                >
-                  {copiedScript === script.id ? 'Kopyalandı!' : 'Kopyala'}
-                </button>
-              </div>
-            </div>
+              title={script.title}
+              description={script.description}
+              scriptContent={script.code}
+              language={script.language}
+              tags={script.tags}
+              requirements={script.requirements}
+              usage={script.usage}
+              githubUrl={script.githubUrl}
+            />
           ))}
         </div>
 
         {/* Call to Action */}
         <div className="text-center mt-12">
-          <div className="bg-card border border-border rounded-lg p-8">
-            <h2 className="text-2xl font-bold text-foreground mb-4">
+          <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-8 shadow-sm">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
               Daha Fazla Script İster Misiniz?
             </h2>
-            <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
+            <p className="text-gray-600 dark:text-gray-300 mb-6 max-w-2xl mx-auto">
               GitHub profilimde daha fazla open source script ve otomasyon aracı
               bulabilirsiniz. Ayrıca özel script talepleriniz için iletişime
               geçebilirsiniz.
@@ -441,13 +328,13 @@ export default function ScriptsPage() {
                 href="https://github.com/yourusername"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center px-6 py-3 border border-border text-base font-medium rounded-md text-foreground bg-background hover:bg-accent transition-colors"
+                className="inline-flex items-center px-6 py-3 border border-gray-300 dark:border-gray-600 text-base font-medium rounded-md text-gray-900 dark:text-white bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
               >
                 GitHub'da İncele
               </a>
               <a
                 href="/contact"
-                className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary hover:bg-primary/90 transition-colors"
+                className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition-colors"
               >
                 Script Talebi
               </a>
