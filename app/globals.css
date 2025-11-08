@@ -1,0 +1,67 @@
+/* Import existing CSS styles */
+@import url('../assets/css/main.css');
+@import url('../assets/css/phase4.css');
+
+/* Next.js specific optimizations */
+:root {
+  --next-bg: var(--bg);
+  --next-text: var(--text);
+  --next-muted: var(--muted);
+  --next-card-bg: var(--card-bg);
+  --next-border: var(--border);
+  --next-accent: var(--accent);
+  --next-accent-hover: var(--accent-hover);
+}
+
+/* Next.js Image component optimizations */
+.next-image-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Performance optimizations */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus styles for accessibility */
+:focus-visible {
+  outline: 2px solid var(--next-accent);
+  outline-offset: 2px;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  body {
+    background: white !important;
+    color: black !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --next-bg: #ffffff;
+    --next-text: #000000;
+    --next-muted: #333333;
+    --next-border: #000000;
+    --next-accent: #0000ff;
+  }
+}

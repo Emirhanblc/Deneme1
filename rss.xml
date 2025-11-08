@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blog - Sistem Yönetimi ve Web Backend</title>
+    <link>https://yourdomain.com</link>
+    <description>Production ortamlarında karşılaştığım sorunları ve çözümlerini paylaşıyorum. Sistem yönetimi, backend geliştirme ve güvenlik üzerine teknik yazılar.</description>
+    <language>tr</language>
+    <lastBuildDate>Mon, 15 Apr 2025 10:00:00 +0300</lastBuildDate>
+    <atom:link href="https://yourdomain.com/rss.xml" rel="self" type="application/rss+xml"/>
+    
+    <item>
+      <title>LVM Extend Sonrası XFS Büyümedi: Çözüm Adımları</title>
+      <link>https://yourdomain.com/blog/lvm-xfs-extend.html</link>
+      <description>Production VMware ortamında LVM genişletme işlemi sonrası XFS dosya sisteminin büyümeme sorununu nasıl çözdüm. Adım adım çözüm ve dikkat edilmesi gereken noktalar.</description>
+      <pubDate>Mon, 15 Apr 2025 10:00:00 +0300</pubDate>
+      <guid>https://yourdomain.com/blog/lvm-xfs-extend.html</guid>
+      <category>Güvenlik</category>
+      <category>Linux</category>
+    </item>
+  </channel>
+</rss>

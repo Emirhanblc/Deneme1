@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Production ortamlarında geliştirdiğim projeler. Sistem yönetimi, backend geliştirme ve mobil uygulama projeleri."
+    />
+    <title>Projeler - Blog</title>
+
+    <meta property="og:title" content="Projeler - Blog" />
+    <meta
+      property="og:description"
+      content="Production ortamlarında geliştirdiğim projeler. Sistem yönetimi, backend geliştirme ve mobil uygulama projeleri."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://yourdomain.com/projects/" />
+    <meta
+      property="og:image"
+      content="https://yourdomain.com/assets/og-image.png"
+    />
+
+    <link rel="stylesheet" href="../assets/css/main.css" />
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <div class="nav-brand">
+          <a href="../index.html">Blog</a>
+        </div>
+        <ul class="nav-links">
+          <li><a href="../blog/index.html">Yazılar</a></li>
+          <li><a href="index.html" class="active">Projeler</a></li>
+          <li><a href="../glossary.html">Sözlük</a></li>
+          <li><a href="../scripts.html">Script'ler</a></li>
+          <li><a href="../about.html">Hakkımda</a></li>
+          <li><a href="../contact.html">İletişim</a></li>
+        </ul>
+        <button
+          class="theme-toggle"
+          id="themeToggle"
+          aria-label="Tema değiştir"
+        >
+          <svg
+            class="sun-icon"
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle
+              cx="10"
+              cy="10"
+              r="4"
+              stroke="currentColor"
+              stroke-width="1.5"
+            />
+            <path
+              d="M10 2V4M10 16V18M18 10H16M4 10H2M15.657 4.343L14.243 5.757M5.757 14.243L4.343 15.657M15.657 15.657L14.243 14.243M5.757 5.757L4.343 4.343"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+            />
+          </svg>
+          <svg
+            class="moon-icon"
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
+      </nav>
+    </header>
+
+    <main class="main">
+      <div class="page-header">
+        <h1 class="page-title">Projeler</h1>
+        <p class="page-description">
+          Production ortamlarında geliştirdiğim ve aktif olarak kullanılan
+          projeler.
+        </p>
+      </div>
+
+      <div class="projects-list">
+        <section class="card">
+          <div class="project-header">
+            <h2 class="project-title">VMware Backup Altyapısı</h2>
+            <span class="badge">Aktif</span>
+          </div>
+          <p class="project-description">
+            50+ sanal makine için otomatik yedekleme sistemi. VLAN ayrıştırması
+            ile network trafiği optimizasyonu ve merkezi yönetim arayüzü.
+          </p>
+          <ul
+            style="
+              margin-left: 1rem;
+              font-size: 0.9rem;
+              color: var(--muted);
+              line-height: 1.6;
+            "
+          >
+            <li>
+              VLAN tabanlı backup network ayrıştırması ile %40 performans artışı
+            </li>
+            <li>Otomatik yedekleme planlaması ve raporlama</li>
+            <li>Disk alanı optimizasyonu ve retention policy yönetimi</li>
+          </ul>
+          <p style="font-size: 0.9rem; color: var(--muted); margin-top: 1rem">
+            <strong>Stack:</strong> VMware vSphere · Veeam Backup · VLAN ·
+            Python · Bash
+          </p>
+        </section>
+
+        <section class="card">
+          <div class="project-header">
+            <h2 class="project-title">Firewall Kural Yönetim Sistemi</h2>
+            <span class="badge">Devam ediyor</span>
+          </div>
+          <p class="project-description">
+            Firewall kurallarını merkezi olarak yöneten web arayüzü. Otomatik
+            yedekleme, versiyon kontrolü ve rollback özelliği.
+          </p>
+          <ul
+            style="
+              margin-left: 1rem;
+              font-size: 0.9rem;
+              color: var(--muted);
+              line-height: 1.6;
+            "
+          >
+            <li>pfSense API entegrasyonu ile merkezi kural yönetimi</li>
+            <li>Git tabanlı versiyon kontrolü ve rollback</li>
+            <li>Kural çakışma tespiti ve uyarı sistemi</li>
+          </ul>
+          <p style="font-size: 0.9rem; color: var(--muted); margin-top: 1rem">
+            <strong>Stack:</strong> Python · Flask · PostgreSQL · pfSense API ·
+            Git
+          </p>
+        </section>
+
+        <article class="project-card">
+          <div class="project-header">
+            <h2 class="project-title">Saha Takip Android Uygulaması</h2>
+            <div class="project-tags">
+              <span class="badge">Geliştiriliyor</span>
+            </div>
+          </div>
+          <p class="project-description">
+            Saha ekipleri için offline-first mobil uygulama. Firebase Realtime
+            Database ile gerçek zamanlı veri senkronizasyonu.
+          </p>
+          <ul class="project-highlights">
+            <li>
+              Offline-first mimari ile internet bağlantısı olmadan çalışma
+            </li>
+            <li>Harita üzerinde konum takibi ve rota optimizasyonu</li>
+            <li>Fotoğraf ve form verisi toplama</li>
+            <li>Gerçek zamanlı veri senkronizasyonu</li>
+          </ul>
+          <p class="project-tech">
+            <strong>Stack:</strong> Android · Kotlin · Firebase Realtime
+            Database · Google Maps API · Room DB
+          </p>
+          <div class="project-links">
+            <span class="project-link"
+              >🔒 Kapalı kod / Talep üzerine gösterilir</span
+            >
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-header">
+            <h2 class="project-title">Log Analiz ve Monitoring Sistemi</h2>
+            <div class="project-tags">
+              <span class="badge">Deneme Ortamı</span>
+            </div>
+          </div>
+          <p class="project-description">
+            Merkezi log toplama ve analiz sistemi. Anomali tespiti ve otomatik
+            uyarı mekanizması.
+          </p>
+          <ul class="project-highlights">
+            <li>Çoklu kaynak log toplama (syslog, file, API)</li>
+            <li>Regex tabanlı pattern matching ve anomali tespiti</li>
+            <li>Grafana dashboard entegrasyonu</li>
+            <li>Threshold bazlı otomatik uyarı sistemi</li>
+          </ul>
+          <p class="project-tech">
+            <strong>Stack:</strong> Python · Elasticsearch · Logstash · Grafana
+            · Redis · Docker
+          </p>
+          <div class="project-links">
+            <a
+              href="https://github.com/yourusername/log-analyzer"
+              class="project-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+                />
+              </svg>
+              GitHub'da Görüntüle
+            </a>
+          </div>
+        </article>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-left">
+          <p class="footer-text">© 2025 [İsim]</p>
+          <p class="footer-license">
+            Aksi belirtilmedikçe tüm içerik kişisel teknik nottur. Ticari
+            kullanım izne tabidir.
+          </p>
+        </div>
+        <div class="footer-center">
+          <p class="footer-source">
+            Kaynak kod:
+            <a
+              href="https://github.com/yourusername/blog"
+              target="_blank"
+              rel="noopener noreferrer"
+              >GitHub</a
+            >
+          </p>
+        </div>
+        <div class="footer-right">
+          <div class="footer-links">
+            <a
+              href="https://github.com/yourusername"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://linkedin.com/in/yourusername"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../assets/js/theme.js"></script>
+  </body>
+</html>

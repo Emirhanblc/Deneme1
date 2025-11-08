@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Bilgisayar Mühendisliği öğrencisi. Sistem yönetimi ve web backend üzerine teknik yazılar."
+    />
+    <title>Blog - Sistem Yönetimi ve Web Backend</title>
+
+    <!-- Adding Open Graph meta tags for social media sharing -->
+    <meta property="og:title" content="Blog - Sistem Yönetimi ve Web Backend" />
+    <meta
+      property="og:description"
+      content="Production ortamlarında karşılaştığım sorunları ve çözümlerini paylaşıyorum. Sistem yönetimi, backend geliştirme ve güvenlik üzerine teknik yazılar."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://yourdomain.com" />
+    <meta
+      property="og:image"
+      content="https://yourdomain.com/assets/og-image.png"
+    />
+    <meta property="og:locale" content="tr_TR" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Blog - Sistem Yönetimi ve Web Backend"
+    />
+    <meta
+      name="twitter:description"
+      content="Production ortamlarında karşılaştığım sorunları ve çözümlerini paylaşıyorum."
+    />
+    <meta
+      name="twitter:image"
+      content="https://yourdomain.com/assets/og-image.png"
+    />
+
+    <link rel="stylesheet" href="assets/css/main.css" />
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <div class="nav-brand">
+          <a href="index.html">Blog</a>
+        </div>
+        <ul class="nav-links">
+          <li><a href="blog/index.html">Yazılar</a></li>
+          <li><a href="projects.html">Projeler</a></li>
+          <li><a href="glossary.html">Sözlük</a></li>
+          <li><a href="scripts.html">Script'ler</a></li>
+          <li><a href="about.html">Hakkımda</a></li>
+          <li><a href="contact.html">İletişim</a></li>
+        </ul>
+        <button
+          class="theme-toggle"
+          id="themeToggle"
+          aria-label="Tema değiştir"
+        >
+          <svg
+            class="sun-icon"
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle
+              cx="10"
+              cy="10"
+              r="4"
+              stroke="currentColor"
+              stroke-width="1.5"
+            />
+            <path
+              d="M10 2V4M10 16V18M18 10H16M4 10H2M15.657 4.343L14.243 5.757M5.757 14.243L4.343 15.657M15.657 15.657L14.243 14.243M5.757 5.757L4.343 4.343"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+            />
+          </svg>
+          <svg
+            class="moon-icon"
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
+      </nav>
+    </header>
+
+    <main class="main">
+      <section class="hero">
+        <h1 class="hero-title">
+          Sistem yönetimi ve backend geliştirme üzerine teknik yazılar
+        </h1>
+        <p class="hero-subtitle">
+          Production ortamlarında karşılaştığım sorunları ve çözümlerini
+          paylaşıyorum. Gerçek projelerle çalışıyorum.
+        </p>
+        <p class="hero-description">
+          Bilgisayar Mühendisliği öğrencisiyim. Güvenlik, yedekleme altyapısı ve
+          network konularına odaklanıyorum.
+        </p>
+      </section>
+
+      <section class="recent-posts">
+        <div class="section-header">
+          <h2 class="section-title">Son Yazılar</h2>
+          <a href="blog/index.html" class="section-link">Tüm yazılar →</a>
+        </div>
+
+        <div class="posts-grid">
+          <article class="post-card">
+            <div class="post-meta">
+              <time datetime="2025-04-15" class="muted">15 Nisan 2025</time>
+              <span class="separator">·</span>
+              <span class="badge">Güvenlik</span>
+            </div>
+            <h3 class="post-title">
+              <a href="blog/lvm-extend-xfs.html"
+                >LVM Extend Sonrası XFS Büyümedi: Çözüm Adımları</a
+              >
+            </h3>
+            <p class="post-excerpt">
+              Production VMware ortamında LVM genişletme işlemi sonrası XFS
+              dosya sisteminin büyümeme sorununu nasıl çözdüm. Adım adım çözüm.
+            </p>
+            <div class="post-footer">
+              <span class="read-time muted">5 dk okuma</span>
+            </div>
+          </article>
+
+          <article class="post-card">
+            <div class="post-meta">
+              <time datetime="2025-04-08" class="muted">8 Nisan 2025</time>
+              <span class="separator">·</span>
+              <span class="badge">Network</span>
+            </div>
+            <h3 class="post-title">
+              <a href="blog/first-post.html"
+                >Backup Network Ayrıştırma: VLAN Yapılandırması</a
+              >
+            </h3>
+            <p class="post-excerpt">
+              Yedekleme trafiğini ana network'ten ayırmak için VLAN tabanlı
+              çözüm. Performans artışı ve güvenlik iyileştirmeleri.
+            </p>
+            <div class="post-footer">
+              <span class="read-time muted">7 dk okuma</span>
+            </div>
+          </article>
+
+          <article class="post-card">
+            <div class="post-meta">
+              <time datetime="2025-03-28" class="muted">28 Mart 2025</time>
+              <span class="separator">·</span>
+              <span class="badge">Android</span>
+            </div>
+            <h3 class="post-title">
+              <a href="blog/first-post.html"
+                >Firebase Realtime Database ile Offline-First Uygulama</a
+              >
+            </h3>
+            <p class="post-excerpt">
+              Android uygulamasında Firebase Realtime Database kullanarak
+              offline-first mimari nasıl kurulur. Senkronizasyon stratejileri.
+            </p>
+            <div class="post-footer">
+              <span class="read-time muted">9 dk okuma</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Personal Branding: Side Project of the Month -->
+      <section
+        class="cta-section"
+        style="
+          background: linear-gradient(
+            135deg,
+            var(--accent) 0%,
+            var(--accent-hover) 100%
+          );
+          color: white;
+        "
+      >
+        <div class="cta-content">
+          <h2 class="cta-title" style="color: white">
+            🚀 Side Project of the Month
+          </h2>
+          <p class="cta-description" style="color: rgba(255, 255, 255, 0.9)">
+            <strong>Kubernetes Monitoring Dashboard</strong> - Production
+            Kubernetes cluster'ları için gerçek zamanlı monitoring ve alert
+            dashboard. Prometheus, Grafana ve custom exporter'lar ile container
+            performansı ve resource kullanımı takibi.
+          </p>
+          <div class="cta-actions">
+            <a
+              href="https://github.com/yourusername/kubernetes-monitoring"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="cta-button"
+              style="background: white; color: var(--accent)"
+            >
+              GitHub'da İncele →
+            </a>
+            <a
+              href="blog/kubernetes-monitoring.html"
+              class="cta-button secondary"
+              style="
+                background: rgba(255, 255, 255, 0.2);
+                color: white;
+                border-color: white;
+              "
+            >
+              Blog Yazısını Oku →
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="projects-preview">
+        <div class="section-header">
+          <h2 class="section-title">Projeler</h2>
+          <a href="projects.html" class="section-link">Tüm projeler →</a>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project-preview-card">
+            <h3 class="project-preview-title">VMware Backup Altyapısı</h3>
+            <p class="project-preview-stack muted">
+              VMware vSphere · Veeam · VLAN · Linux
+            </p>
+            <p class="project-preview-description">
+              Production ortamında 50+ VM için otomatik yedekleme sistemi. VLAN
+              ayrıştırması ile network trafiği optimizasyonu.
+            </p>
+            <a href="projects.html" class="project-preview-link"
+              >Detayları gör →</a
+            >
+          </article>
+
+          <article class="project-preview-card">
+            <h3 class="project-preview-title">
+              Firewall Kural Yönetim Sistemi
+            </h3>
+            <p class="project-preview-stack muted">
+              Python · Flask · PostgreSQL · pfSense API
+            </p>
+            <p class="project-preview-description">
+              Firewall kurallarını merkezi olarak yöneten web arayüzü. Otomatik
+              yedekleme ve versiyon kontrolü.
+            </p>
+            <a href="projects.html" class="project-preview-link"
+              >Detayları gör →</a
+            >
+          </article>
+        </div>
+      </section>
+
+      <!-- Enhanced Newsletter CTA Section -->
+      <section class="cta-section">
+        <div class="cta-content">
+          <h2 class="cta-title">DevOps & Backend Insights</h2>
+          <p class="cta-description">
+            Production sistemlerde karşılaştığım gerçek sorunlar ve çözümlerini
+            düzenli olarak paylaşıyorum. Yeni yazılardan haberdar olmak için
+            abone olun.
+          </p>
+          <div class="newsletter-form">
+            <form
+              action="https://yourdomain.convertkit.com/forms/123456/subscriptions"
+              method="post"
+              class="newsletter-form-inner"
+            >
+              <input
+                type="email"
+                name="email"
+                placeholder="E-posta adresiniz"
+                required
+                aria-label="E-posta adresiniz"
+              />
+              <button type="submit" class="cta-button">Abone Ol</button>
+            </form>
+            <p class="newsletter-note">
+              Haftalık sistem yönetimi ipuçları ve backend geliştirme
+              rehberleri. Spam yok, sadece değerli içerik.
+            </p>
+          </div>
+          <div class="social-links" style="margin-top: 2rem">
+            <a href="rss.xml" class="social-link" aria-label="RSS Feed">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path d="M4 11a9 9 0 0 1 9 9"></path>
+                <path d="M4 4a16 16 0 0 1 16 16"></path>
+                <circle cx="5" cy="19" r="1"></circle>
+              </svg>
+              RSS
+            </a>
+            <a
+              href="https://github.com/yourusername"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="social-link"
+              aria-label="GitHub"
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+                />
+              </svg>
+              GitHub
+            </a>
+            <a
+              href="https://linkedin.com/in/yourusername"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="social-link"
+              aria-label="LinkedIn"
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+                />
+              </svg>
+              LinkedIn
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Phase 4: Community Section -->
+      <section class="community-section">
+        <h2 class="community-title">Teknik Topluluğa Katılın</h2>
+        <p class="community-description">
+          Sistem yönetimi ve backend geliştirme konularında diğer
+          profesyonellerle bağlantı kurun, sorularınızı sorun ve deneyimlerinizi
+          paylaşın.
+        </p>
+        <div class="community-buttons">
+          <button class="community-btn" data-platform="discord">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M18.59 5.89c-1.23-.58-2.53-1.03-3.89-1.33-.17.3-.37.7-.5 1.02-1.43-.21-2.85-.21-4.25 0-.14-.32-.34-.72-.51-1.02-1.37.3-2.67.75-3.9 1.33-2.45 3.68-3.12 7.26-2.79 10.8 1.56.87 3.07 1.4 4.55 1.74.37-.5.7-1.03.98-1.59-.54-.2-1.06-.44-1.55-.73.13-.1.26-.2.38-.3 2.99 1.39 6.23 1.39 9.19 0 .12.1.25.2.38.3-.49.29-1.01.53-1.55.73.28.56.61 1.09.98 1.59 1.48-.34 2.99-.87 4.55-1.74.4-4.04-.67-7.62-2.79-10.8zM8.75 14.5c-.89 0-1.61-.8-1.61-1.79s.72-1.79 1.61-1.79 1.61.8 1.61 1.79-.72 1.79-1.61 1.79zm6.5 0c-.89 0-1.61-.8-1.61-1.79s.72-1.79 1.61-1.79 1.61.8 1.61 1.79-.72 1.79-1.61 1.79z"
+              />
+            </svg>
+            Discord Topluluğu
+          </button>
+          <button class="community-btn" data-platform="slack">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M6 15a2 2 0 1 1-2-2h2v2zm0-4a2 2 0 1 1 2-2v2H6zm4 4a2 2 0 1 1 2 2v-2h-2zm8-4a2 2 0 1 1-2 2v-2h2zm-4-4a2 2 0 1 1 2-2v2h-2zm-4 0a2 2 0 1 1-2 2V7h2zm8 4a2 2 0 1 1 2-2v2h-2z"
+              />
+            </svg>
+            Slack Workspace
+          </button>
+        </div>
+      </section>
+
+      <!-- Phase 4: Collaborations Section -->
+      <section class="collaborations-section">
+        <div class="section-header">
+          <h2 class="section-title">İş Birlikleri & Ortak Projeler</h2>
+        </div>
+        <div class="collaborations-grid">
+          <article class="collaboration-card">
+            <span class="collaboration-status status-active">Aktif</span>
+            <h3 class="collaboration-title">Kubernetes Monitoring Dashboard</h3>
+            <p class="collaboration-partner">Ahmet Yılmaz ile birlikte</p>
+            <p class="collaboration-description">
+              Production Kubernetes cluster'ları için open-source monitoring
+              dashboard geliştiriyoruz. Prometheus ve Grafana entegrasyonu.
+            </p>
+            <div class="collaboration-links">
+              <a
+                href="https://github.com/yourusername/kubernetes-monitoring"
+                class="project-link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                GitHub'da İncele
+              </a>
+            </div>
+          </article>
+
+          <article class="collaboration-card">
+            <span class="collaboration-status status-planned">Planlanan</span>
+            <h3 class="collaboration-title">DevOps Eğitim Serisi</h3>
+            <p class="collaboration-partner">Mehmet Demir ile birlikte</p>
+            <p class="collaboration-description">
+              Yeni başlayanlar için DevOps araçları ve metodolojileri üzerine
+              Türkçe video eğitim serisi hazırlıyoruz.
+            </p>
+          </article>
+
+          <article class="collaboration-card">
+            <span class="collaboration-status status-completed"
+              >Tamamlandı</span
+            >
+            <h3 class="collaboration-title">Firewall Rule Validator</h3>
+            <p class="collaboration-partner">Ayşe Kaya ile birlikte</p>
+            <p class="collaboration-description">
+              pfSense firewall kurallarını analiz eden ve çakışmaları tespit
+              eden Python script'i geliştirdik.
+            </p>
+            <div class="collaboration-links">
+              <a
+                href="https://github.com/yourusername/firewall-validator"
+                class="project-link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                GitHub'da İncele
+              </a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Phase 4: Bug Bounty Section -->
+      <section class="bug-bounty-section">
+        <h2 class="section-title">Open Source Katkıları</h2>
+        <p class="section-description">
+          Paylaştığım script'ler ve araçlar open source. Hataları bildirin veya
+          geliştirmelere katkıda bulunun.
+        </p>
+        <div class="bounty-buttons">
+          <a
+            href="https://github.com/yourusername/blog/issues"
+            class="bounty-btn"
+            data-action="report"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"
+              />
+            </svg>
+            Hata Bildir
+          </a>
+          <a
+            href="https://github.com/yourusername/blog"
+            class="bounty-btn"
+            data-action="contribute"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12z"
+              />
+            </svg>
+            Katkıda Bulun
+          </a>
+        </div>
+      </section>
+
+      <!-- Projects CTA Section -->
+      <section class="cta-section">
+        <div class="cta-content">
+          <h2 class="cta-title">Production Deneyimleri</h2>
+          <p class="cta-description">
+            Gerçek production sistemlerde uyguladığım çözümleri ve projelerimi
+            inceleyin. VMware backup altyapısı, firewall yönetim sistemi ve daha
+            fazlası.
+          </p>
+          <div class="cta-actions">
+            <a href="projects.html" class="cta-button">Projeleri İncele →</a>
+            <a href="blog/index.html" class="cta-button secondary"
+              >Yazıları Oku →</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-left">
+          <p class="footer-text">© 2025 [İsim]</p>
+          <p class="footer-license">
+            Aksi belirtilmedikçe tüm içerik kişisel teknik nottur. Ticari
+            kullanım izne tabidir.
+          </p>
+        </div>
+        <div class="footer-center">
+          <p class="footer-source">
+            Kaynak kod:
+            <a
+              href="https://github.com/yourusername/blog"
+              target="_blank"
+              rel="noopener noreferrer"
+              >GitHub</a
+            >
+          </p>
+        </div>
+        <div class="footer-right">
+          <div class="footer-links">
+            <a
+              href="https://github.com/yourusername"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://linkedin.com/in/yourusername"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/phase4.js"></script>
+  </body>
+</html>
