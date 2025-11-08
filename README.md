@@ -1,5 +1,8 @@
 # BlogSayfam2 - System Administration & Web Backend Development Blog
 
+![CI](https://github.com/Emirhanblc/Deneme1/workflows/CI/badge.svg)
+[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black)](https://deneme1-sooty.vercel.app/)
+
 A professional, technically mature blog focused on system administration and web backend development topics. This blog has been enhanced with comprehensive UX, SEO, and technical improvements.
 
 ## 🚀 Key Improvements Implemented
@@ -71,9 +74,15 @@ A professional, technically mature blog focused on system administration and web
 
 ## 🛠 Technical Stack
 
-- **Frontend:** HTML5, CSS3, JavaScript (ES6+)
-- **Styling:** CSS Custom Properties, Flexbox, Grid
-- **Build Tools:** Node.js, CleanCSS, UglifyJS
+- **Frontend:** Next.js 14, React 18, TypeScript
+- **Styling:** Tailwind CSS, CSS Custom Properties
+- **Backend:** Next.js API Routes, Prisma ORM
+- **Database:** PostgreSQL
+- **Authentication:** NextAuth.js
+- **Payments:** Stripe
+- **Testing:** Jest, ts-jest, Testing Library
+- **CI/CD:** GitHub Actions
+- **Deployment:** Vercel
 - **Performance:** Image optimization, code minification
 - **SEO:** Structured data, meta tags, sitemap generation
 
@@ -114,20 +123,37 @@ npm install
 
 # Start development server
 npm run dev
+
+# Open http://localhost:3000
 ```
 
-### Build & Optimization
+### Testing
 
 ```bash
-# Optimize CSS and JavaScript
+# Run all tests
+npm test
+
+# Run tests in watch mode
+npm run test:watch
+
+# Run tests with coverage
+npm test -- --coverage
+```
+
+### Build & Deployment
+
+```bash
+# Build for production
 npm run build
 
-# Compress images
-npm run compress-images
+# Start production server
+npm start
 
-# Generate sitemap
-npm run generate-sitemap
+# Run linter
+npm run lint
 ```
+
+See **[TESTING.md](./TESTING.md)** for comprehensive testing documentation.
 
 ## 🎨 Design System
 
@@ -189,6 +215,45 @@ npm run generate-sitemap
 - Lazy loading for images
 - Browser caching headers
 - Critical CSS inlining
+
+## 🔄 CI/CD Pipeline
+
+### GitHub Actions
+
+The project uses GitHub Actions for continuous integration:
+
+- ✅ **Automatic Testing** - Runs on every push and pull request
+- ✅ **Build Verification** - Ensures production build succeeds
+- ✅ **Linting** - Validates code quality
+- ✅ **TypeScript Checks** - Verifies type safety
+
+### Workflow Triggers
+
+- Push to `main` branch
+- Pull requests targeting `main`
+
+### CI Status
+
+Check the badge at the top of this README for current CI status.
+
+See **[CI_SETUP_SUMMARY.md](./CI_SETUP_SUMMARY.md)** for detailed CI configuration.
+
+## 🧪 Testing
+
+### Test Suites
+
+- **Healthcheck Tests** - Environment validation
+- **API Tests** - Endpoint response validation
+- **Configuration Tests** - Settings and exports validation
+
+### Coverage
+
+```
+Test Suites: 3 passed, 3 total
+Tests:       15 passed, 15 total
+```
+
+For detailed testing information, see **[TESTING.md](./TESTING.md)**.
 
 ## 🌐 SEO & Social Media
 
