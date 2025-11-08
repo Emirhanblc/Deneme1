@@ -36,25 +36,26 @@ export default function AboutPage() {
     ],
   };
 
+  // Note: Company names are placeholders for privacy. Real experience details are maintained.
   const experience = [
     {
       period: '2023 - Present',
       role: 'Senior System Administrator',
-      company: 'TechCorp Inc.',
+      company: 'Kurumsal Teknoloji Şirketi', // Placeholder for privacy
       description:
         'Managing production infrastructure for 50+ VMs, implementing automated backup solutions, and optimizing network performance.',
     },
     {
       period: '2021 - 2023',
       role: 'DevOps Engineer',
-      company: 'StartupXYZ',
+      company: 'SaaS Girişimi', // Placeholder for privacy
       description:
         'Built CI/CD pipelines, containerized applications, and implemented monitoring solutions for microservices architecture.',
     },
     {
       period: '2019 - 2021',
       role: 'Junior System Administrator',
-      company: 'LocalHost Ltd.',
+      company: 'Yerel Hosting Şirketi', // Placeholder for privacy
       description:
         'Started career managing Linux servers, learning network fundamentals, and developing automation scripts.',
     },

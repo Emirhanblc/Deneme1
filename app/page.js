@@ -1,4 +1,5 @@
-import Link from 'next/link'
+import Link from 'next/link';
+import { SITE_CONFIG, isPlaceholder } from '@/lib/siteConfig';
 
 export default function Home() {
   const recentPosts = [
@@ -7,18 +8,20 @@ export default function Home() {
       href: '/blog/lvm-extend-xfs',
       date: '15 Nisan 2025',
       category: 'Güvenlik',
-      excerpt: 'Production VMware ortamında LVM genişletme işlemi sonrası XFS dosya sisteminin büyümeme sorununu nasıl çözdüm. Adım adım çözüm.',
-      readTime: '5 dk okuma'
+      excerpt:
+        'Production VMware ortamında LVM genişletme işlemi sonrası XFS dosya sisteminin büyümeme sorununu nasıl çözdüm. Adım adım çözüm.',
+      readTime: '5 dk okuma',
     },
     {
       title: 'Backup Network Ayrıştırma: VLAN Yapılandırması',
       href: '/blog/first-post',
       date: '8 Nisan 2025',
       category: 'Network',
-      excerpt: 'Yedekleme trafiğini ana network\'ten ayırmak için VLAN tabanlı çözüm. Performans artışı ve güvenlik iyileştirmeleri.',
-      readTime: '7 dk okuma'
-    }
-  ]
+      excerpt:
+        "Yedekleme trafiğini ana network'ten ayırmak için VLAN tabanlı çözüm. Performans artışı ve güvenlik iyileştirmeleri.",
+      readTime: '7 dk okuma',
+    },
+  ];
 
   return (
     <>
@@ -55,14 +58,18 @@ export default function Home() {
       <section className="recent-posts">
         <div className="section-header">
           <h2 className="section-title">Son Yazılar</h2>
-          <Link href="/blog" className="section-link">Tüm yazılar →</Link>
+          <Link href="/blog" className="section-link">
+            Tüm yazılar →
+          </Link>
         </div>
 
         <div className="posts-grid">
           {recentPosts.map((post, index) => (
             <article key={index} className="post-card">
               <div className="post-meta">
-                <time dateTime="2025-04-15" className="muted">{post.date}</time>
+                <time dateTime="2025-04-15" className="muted">
+                  {post.date}
+                </time>
                 <span className="separator">·</span>
                 <span className="badge">{post.category}</span>
               </div>
@@ -79,40 +86,46 @@ export default function Home() {
       </section>
 
       {/* Side Project CTA */}
-      <section 
+      <section
         className="cta-section"
         style={{
-          background: 'linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%)',
-          color: 'white'
+          background:
+            'linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%)',
+          color: 'white',
         }}
       >
         <div className="cta-content">
           <h2 className="cta-title" style={{ color: 'white' }}>
             🚀 Side Project of the Month
           </h2>
-          <p className="cta-description" style={{ color: 'rgba(255, 255, 255, 0.9)' }}>
+          <p
+            className="cta-description"
+            style={{ color: 'rgba(255, 255, 255, 0.9)' }}
+          >
             <strong>Kubernetes Monitoring Dashboard</strong> - Production
             Kubernetes cluster'ları için gerçek zamanlı monitoring ve alert
             dashboard. Prometheus, Grafana ve custom exporter'lar ile container
             performansı ve resource kullanımı takibi.
           </p>
           <div className="cta-actions">
-            <Link
-              href="https://github.com/yourusername/kubernetes-monitoring"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="cta-button"
-              style={{ background: 'white', color: 'var(--accent)' }}
-            >
-              GitHub'da İncele →
-            </Link>
+            {!isPlaceholder(SITE_CONFIG.projects.kubernetesMonitoring) && (
+              <Link
+                href={SITE_CONFIG.projects.kubernetesMonitoring}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="cta-button"
+                style={{ background: 'white', color: 'var(--accent)' }}
+              >
+                GitHub'da İncele →
+              </Link>
+            )}
             <Link
               href="/blog"
               className="cta-button secondary"
               style={{
                 background: 'rgba(255, 255, 255, 0.2)',
                 color: 'white',
-                borderColor: 'white'
+                borderColor: 'white',
               }}
             >
               Blog Yazılarını Oku →
@@ -147,5 +160,5 @@ export default function Home() {
         </div>
       </section>
     </>
-  )
+  );
 }

@@ -3,6 +3,9 @@
 import React, { useState, useMemo } from 'react';
 import Link from 'next/link';
 
+// Note: This is a client component so metadata is set in the parent layout
+// or via a separate metadata export in a server component wrapper if needed
+
 // Mock data - in production, this would come from Headless CMS
 const glossaryTerms = [
   {

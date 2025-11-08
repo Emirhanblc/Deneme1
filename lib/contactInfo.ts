@@ -1,7 +1,10 @@
 // Contact information constants
 // TODO: Replace placeholder values with real contact information
+// Note: This file is kept for backward compatibility.
+// New code should import from lib/siteConfig.ts instead.
 
-export const CONTACT_EMAIL = 'your.real.email@example.com'; // TODO: replace with real email
-export const CONTACT_LINKEDIN = 'https://www.linkedin.com/in/yourprofile'; // TODO
-export const CONTACT_GITHUB = 'https://github.com/yourusername'; // TODO
+import { SITE_CONFIG } from './siteConfig';
 
+export const CONTACT_EMAIL = SITE_CONFIG.contact.email;
+export const CONTACT_LINKEDIN = SITE_CONFIG.contact.linkedin;
+export const CONTACT_GITHUB = SITE_CONFIG.contact.github;
