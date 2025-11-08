@@ -1,8 +1,25 @@
-import { Inter } from 'next/font/google'
-import './globals.css'
-import Layout from '../components/Layout'
+import { Inter, JetBrains_Mono, DM_Sans } from 'next/font/google';
+import './globals.css';
+import Layout from '../components/Layout';
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+  display: 'swap',
+});
+
+const dmSans = DM_Sans({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-dm-sans',
+  display: 'swap',
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  variable: '--font-jetbrains-mono',
+  display: 'swap',
+});
 
 export const metadata = {
   title: 'Sistem Yönetimi & Web Backend Blogu',
@@ -17,16 +34,17 @@ export const metadata = {
     type: 'website',
     locale: 'tr_TR',
   },
-}
+};
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="tr">
+    <html
+      lang="tr"
+      className={`${inter.variable} ${dmSans.variable} ${jetbrainsMono.variable}`}
+    >
       <body className={inter.className}>
-        <Layout>
-          {children}
-        </Layout>
+        <Layout>{children}</Layout>
       </body>
     </html>
-  )
+  );
 }

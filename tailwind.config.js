@@ -7,6 +7,11 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
+        heading: ['var(--font-dm-sans)', 'system-ui', 'sans-serif'],
+        mono: ['var(--font-jetbrains-mono)', 'Consolas', 'Monaco', 'monospace'],
+      },
       colors: {
         primary: {
           50: '#f0fdfa',
@@ -21,11 +26,26 @@ module.exports = {
           900: '#134e4a',
           950: '#042f2e',
         },
+        neutral: {
+          50: '#fafafa',
+          100: '#f5f5f5',
+          200: '#e5e5e5',
+          300: '#d4d4d4',
+          400: '#a3a3a3',
+          500: '#737373',
+          600: '#525252',
+          700: '#404040',
+          800: '#262626',
+          900: '#171717',
+          950: '#0a0a0a',
+        },
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-out',
         'slide-up': 'slideUp 0.5s ease-out',
         'scale-in': 'scaleIn 0.3s ease-out',
+        'grid-pulse': 'gridPulse 4s ease-in-out infinite',
+        progress: 'progress 0.3s ease-out',
       },
       keyframes: {
         fadeIn: {
@@ -40,6 +60,17 @@ module.exports = {
           '0%': { transform: 'scale(0.95)', opacity: '0' },
           '100%': { transform: 'scale(1)', opacity: '1' },
         },
+        gridPulse: {
+          '0%, 100%': { opacity: '0.02' },
+          '50%': { opacity: '0.05' },
+        },
+        progress: {
+          '0%': { width: '0%' },
+          '100%': { width: '100%' },
+        },
+      },
+      lineHeight: {
+        'relaxed-plus': '1.75',
       },
     },
   },

@@ -1,4 +1,12 @@
 import Link from 'next/link';
+import {
+  Shield,
+  Network,
+  Server,
+  ArrowRight,
+  Clock,
+  Calendar,
+} from 'lucide-react';
 
 export const metadata = {
   title: 'Blog – Sistem Yönetimi & Backend',
@@ -13,6 +21,7 @@ export default function BlogPage() {
       href: '/blog/lvm-extend-xfs',
       date: '15 Nisan 2025',
       category: 'Güvenlik',
+      icon: Shield,
       excerpt:
         'Production VMware ortamında LVM genişletme işlemi sonrası XFS dosya sisteminin büyümeme sorununu nasıl çözdüm. Adım adım çözüm.',
       readTime: '5 dk okuma',
@@ -22,6 +31,7 @@ export default function BlogPage() {
       href: '/blog/first-post',
       date: '8 Nisan 2025',
       category: 'Network',
+      icon: Network,
       excerpt:
         "Yedekleme trafiğini ana network'ten ayırmak için VLAN tabanlı çözüm. Performans artışı ve güvenlik iyileştirmeleri.",
       readTime: '7 dk okuma',
@@ -31,6 +41,7 @@ export default function BlogPage() {
       href: '/blog/first-post',
       date: '28 Mart 2025',
       category: 'Android',
+      icon: Server,
       excerpt:
         'Android uygulamasında Firebase Realtime Database kullanarak offline-first mimari nasıl kurulur. Senkronizasyon stratejileri.',
       readTime: '9 dk okuma',
@@ -38,103 +49,70 @@ export default function BlogPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-50 py-16 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-6xl mx-auto">
+    <div className="min-h-screen bg-white py-20 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
         {/* Header Section */}
-        <div className="text-center mb-12 animate-fade-in">
-          <h1 className="text-4xl sm:text-5xl font-bold text-slate-900 tracking-tight mb-4">
+        <div className="text-center mb-16 animate-fade-in">
+          <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-neutral-900 tracking-tight mb-6">
             Tüm Yazılar
           </h1>
-          <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+          <p className="text-xl text-neutral-600 max-w-3xl mx-auto leading-relaxed-plus">
             Sistem yönetimi, backend geliştirme ve güvenlik üzerine teknik
-            yazılar.
+            yazılar. Production ortamlarından gerçek çözümler.
           </p>
         </div>
 
         {/* Blog Posts Grid */}
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-2">
-          {blogPosts.map((post, index) => (
-            <article
-              key={index}
-              className="group rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 animate-slide-up"
-              style={{ animationDelay: `${index * 100}ms` }}
-            >
-              {/* Meta Info */}
-              <div className="flex items-center gap-3 mb-4">
-                <time className="text-sm text-slate-500 font-medium flex items-center gap-1">
-                  <svg
-                    className="w-4 h-4"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                    />
-                  </svg>
-                  {post.date}
-                </time>
-                <span className="text-slate-300">·</span>
-                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-primary-100 text-primary-700">
-                  {post.category}
-                </span>
-              </div>
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-2">
+          {blogPosts.map((post, index) => {
+            const IconComponent = post.icon;
+            return (
+              <article
+                key={index}
+                className="group rounded-2xl border border-neutral-200 bg-white p-8 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 animate-slide-up"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                {/* Icon Badge */}
+                <div className="inline-flex items-center gap-2 mb-6 px-3 py-2 rounded-lg bg-primary-50 text-primary-600">
+                  <IconComponent className="w-5 h-5" />
+                  <span className="text-xs font-mono font-semibold uppercase tracking-wider">
+                    {post.category}
+                  </span>
+                </div>
 
-              {/* Title */}
-              <h2 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-primary-600 transition-colors">
-                <Link href={post.href} className="hover:underline">
-                  {post.title}
-                </Link>
-              </h2>
+                {/* Title */}
+                <h2 className="font-heading text-2xl font-bold text-neutral-900 mb-4 group-hover:text-primary-600 transition-colors leading-tight">
+                  <Link href={post.href}>{post.title}</Link>
+                </h2>
 
-              {/* Excerpt */}
-              <p className="text-slate-600 mb-4 leading-relaxed line-clamp-2">
-                {post.excerpt}
-              </p>
+                {/* Excerpt */}
+                <p className="text-neutral-600 mb-6 leading-relaxed-plus line-clamp-2">
+                  {post.excerpt}
+                </p>
 
-              {/* Footer */}
-              <div className="flex items-center justify-between pt-4 border-t border-slate-100">
-                <span className="text-sm text-slate-500 flex items-center gap-1">
-                  <svg
-                    className="w-4 h-4"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
+                {/* Footer */}
+                <div className="flex items-center justify-between pt-6 border-t border-neutral-100">
+                  <div className="flex items-center gap-4 text-sm text-neutral-500">
+                    <time className="flex items-center gap-1.5 font-medium">
+                      <Calendar className="w-4 h-4" />
+                      {post.date}
+                    </time>
+                    <span className="flex items-center gap-1.5">
+                      <Clock className="w-4 h-4" />
+                      {post.readTime}
+                    </span>
+                  </div>
+                  <Link
+                    href={post.href}
+                    className="text-primary-600 hover:text-primary-700 font-semibold text-sm flex items-center gap-1.5 group-hover:gap-2.5 transition-all"
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
-                  </svg>
-                  {post.readTime}
-                </span>
-                <Link
-                  href={post.href}
-                  className="text-primary-600 hover:text-primary-700 font-medium text-sm flex items-center gap-1 group-hover:gap-2 transition-all"
-                >
-                  Devamını oku
-                  <svg
-                    className="w-4 h-4"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M14 5l7 7m0 0l-7 7m7-7H3"
-                    />
-                  </svg>
-                </Link>
-              </div>
-            </article>
-          ))}
+                    Devamını oku
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </div>
+              </article>
+            );
+          })}
         </div>
       </div>
     </div>
