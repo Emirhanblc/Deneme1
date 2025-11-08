@@ -39,53 +39,53 @@ export default function Home() {
 
   return (
     <>
-      {/* Hero Section - Modern & Engaging */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-neutral-950 via-neutral-900 to-neutral-950 py-24 px-4 sm:px-6 lg:px-8">
+      {/* Hero Section - Dark Mode Only */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 py-24 px-4 sm:px-6 lg:px-8">
         {/* Animated background pattern */}
         <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:32px_32px] animate-grid-pulse" />
-        <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent" />
 
         <div className="relative max-w-5xl mx-auto text-center animate-fade-in">
           {/* System Icons floating */}
           <div className="flex justify-center gap-6 mb-8 opacity-40">
             <div className="animate-pulse" style={{ animationDelay: '0s' }}>
-              <Server className="w-8 h-8 text-primary-400" />
+              <Server className="w-8 h-8 text-sky-400" />
             </div>
             <div className="animate-pulse" style={{ animationDelay: '0.5s' }}>
-              <Terminal className="w-8 h-8 text-primary-400" />
+              <Terminal className="w-8 h-8 text-sky-400" />
             </div>
             <div className="animate-pulse" style={{ animationDelay: '1s' }}>
-              <Shield className="w-8 h-8 text-primary-400" />
+              <Shield className="w-8 h-8 text-sky-400" />
             </div>
             <div className="animate-pulse" style={{ animationDelay: '1.5s' }}>
-              <Network className="w-8 h-8 text-primary-400" />
+              <Network className="w-8 h-8 text-sky-400" />
             </div>
           </div>
 
-          <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-6">
+          <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-slate-100 mb-6">
             Sistem yönetimi ve{' '}
-            <span className="text-primary-400">backend geliştirme</span> üzerine
+            <span className="text-sky-400">backend geliştirme</span> üzerine
             teknik yazılar
           </h1>
-          <p className="text-xl sm:text-2xl text-neutral-300 mb-4 leading-relaxed max-w-3xl mx-auto">
+          <p className="text-xl sm:text-2xl text-slate-300 mb-4 leading-relaxed max-w-3xl mx-auto">
             Production ortamlarında karşılaştığım sorunları ve çözümlerini
             paylaşıyorum. Gerçek projelerle çalışıyorum.
           </p>
-          <p className="text-base sm:text-lg text-neutral-400 mb-10 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-slate-400 mb-10 max-w-2xl mx-auto">
             Bilgisayar Mühendisliği öğrencisiyim. Güvenlik, yedekleme altyapısı
             ve network konularına odaklanıyorum.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link
               href="/blog"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-primary-600 text-white font-semibold text-lg shadow-lg hover:bg-primary-700 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-200 group"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-sky-500 text-white font-semibold text-lg shadow-lg hover:bg-sky-600 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-200 group"
             >
               Blog Yazılarını Oku
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl border-2 border-white/20 text-white font-semibold text-lg backdrop-blur-sm hover:bg-white/10 hover:-translate-y-0.5 transition-all duration-200"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl border-2 border-slate-700 text-slate-100 font-semibold text-lg hover:bg-slate-900 hover:-translate-y-0.5 transition-all duration-200"
             >
               <Terminal className="w-5 h-5" />
               İletişime Geç
@@ -158,6 +158,11 @@ export default function Home() {
           })}
         </div>
       </section>
+
+      {/* Section Separator */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-12">
+        <div className="h-px bg-gradient-to-r from-transparent via-slate-300 dark:via-slate-700 to-transparent" />
+      </div>
 
       {/* Side Project CTA - Modern Design with Tech Stack */}
       <section className="relative overflow-hidden bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800 py-20 px-4 sm:px-6 lg:px-8">
@@ -235,21 +240,26 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Section Separator */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-16">
+        <div className="h-px bg-gradient-to-r from-transparent via-slate-300 dark:via-slate-700 to-transparent" />
+      </div>
+
       {/* Newsletter CTA - Clean Card Design */}
       <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="rounded-3xl border border-neutral-200 bg-gradient-to-br from-white via-neutral-50 to-white p-10 sm:p-14 shadow-xl text-center hover:shadow-2xl transition-shadow duration-300">
-          <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full bg-primary-100 border border-primary-200">
-            <Zap className="w-4 h-4 text-primary-600" />
-            <span className="text-sm font-mono font-semibold text-primary-700 uppercase tracking-wider">
+        <div className="rounded-3xl border border-slate-200 dark:border-slate-800 bg-gradient-to-br from-white via-slate-50 to-white dark:from-slate-900 dark:via-slate-900 dark:to-slate-900 p-10 sm:p-14 shadow-xl text-center hover:shadow-2xl transition-shadow duration-300">
+          <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full bg-primary-100 dark:bg-primary-950/30 border border-primary-200 dark:border-primary-800">
+            <Zap className="w-4 h-4 text-primary-600 dark:text-primary-400" />
+            <span className="text-sm font-mono font-semibold text-primary-700 dark:text-primary-400 uppercase tracking-wider">
               DevOps & Backend Insights
             </span>
           </div>
 
-          <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-900 mb-6">
+          <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-6">
             Gerçek Dünya Çözümlerini Kaçırmayın
           </h2>
 
-          <p className="text-lg text-neutral-600 mb-10 max-w-2xl mx-auto leading-relaxed-plus">
+          <p className="text-lg text-slate-600 dark:text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed-plus">
             Production sistemlerde karşılaştığım gerçek sorunlar ve çözümlerini
             düzenli olarak paylaşıyorum. Yeni yazılardan haberdar olmak için
             abone olun.
@@ -264,7 +274,7 @@ export default function Home() {
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </Link>
 
-          <p className="text-sm text-neutral-500 mt-8 flex items-center justify-center gap-2">
+          <p className="text-sm text-slate-500 dark:text-slate-400 mt-8 flex items-center justify-center gap-2">
             <Terminal className="w-4 h-4" />
             Haftalık sistem yönetimi ipuçları ve backend geliştirme rehberleri.
             Spam yok, sadece değerli içerik.

@@ -45,7 +45,7 @@ export default function ThemeToggle() {
   if (!mounted) {
     return (
       <button
-        className="p-2 rounded-md border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-900"
+        className="p-2 rounded-md border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900"
         disabled
         aria-label="Loading theme"
       >
@@ -56,7 +56,7 @@ export default function ThemeToggle() {
 
   return (
     <button
-      className="p-2 rounded-md border border-neutral-300 dark:border-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-all duration-200 ease-out hover:-translate-y-0.5 active:translate-y-0 text-neutral-700 dark:text-neutral-300"
+      className="p-2.5 rounded-lg border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 hover:border-primary-500 dark:hover:border-primary-500 transition-all duration-200 ease-in-out hover:-translate-y-0.5 active:translate-y-0 text-slate-700 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-400"
       onClick={toggleTheme}
       aria-label={isDark ? 'Açık temaya geç' : 'Koyu temaya geç'}
     >

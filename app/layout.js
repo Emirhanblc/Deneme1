@@ -40,7 +40,7 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="tr"
-      className={`${inter.variable} ${dmSans.variable} ${jetbrainsMono.variable}`}
+      className={`dark ${inter.variable} ${dmSans.variable} ${jetbrainsMono.variable}`}
     >
       <body className={inter.className}>
         <Layout>{children}</Layout>
