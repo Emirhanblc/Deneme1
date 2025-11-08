@@ -96,14 +96,14 @@ export default function ProjectsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-white py-20">
+    <div className="min-h-screen bg-white dark:bg-neutral-950 py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16 animate-fade-in">
-          <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-neutral-900 tracking-tight mb-6">
+          <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-neutral-900 dark:text-neutral-100 tracking-tight mb-6">
             Projeler
           </h1>
-          <p className="text-xl text-neutral-600 max-w-3xl mx-auto leading-relaxed-plus">
+          <p className="text-xl text-neutral-600 dark:text-neutral-400 max-w-3xl mx-auto leading-relaxed-plus">
             Production sistemlerde geliştirdiğim ve open source olarak
             paylaştığım projeler. Gerçek problemlere pratik çözümler.
           </p>
@@ -122,7 +122,7 @@ export default function ProjectsPage() {
             return (
               <div
                 key={project.id}
-                className="group rounded-2xl border border-neutral-200 bg-white p-8 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 animate-slide-up"
+                className="group rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 text-neutral-900 dark:text-neutral-100 p-8 shadow-sm hover:bg-neutral-50 dark:hover:bg-neutral-800 hover:text-neutral-900 dark:hover:text-neutral-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 animate-slide-up"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 {/* Status Badge */}
@@ -136,12 +136,12 @@ export default function ProjectsPage() {
                 </div>
 
                 {/* Title */}
-                <h3 className="font-heading text-2xl font-bold text-neutral-900 mb-4 leading-tight group-hover:text-primary-600 transition-colors">
+                <h3 className="font-heading text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-4 leading-tight group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
                   {project.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-neutral-600 mb-6 leading-relaxed-plus line-clamp-3">
+                <p className="text-neutral-600 dark:text-neutral-400 mb-6 leading-relaxed-plus line-clamp-3 group-hover:text-neutral-600 dark:group-hover:text-neutral-400">
                   {project.description}
                 </p>
 
@@ -155,14 +155,14 @@ export default function ProjectsPage() {
                 </div>
 
                 {/* Action Buttons */}
-                <div className="flex flex-col gap-3 pt-6 border-t border-neutral-100">
+                <div className="flex flex-col gap-3 pt-6 border-t border-neutral-100 dark:border-neutral-800">
                   <div className="flex gap-3">
                     {project.githubUrl && !isPlaceholder(project.githubUrl) && (
                       <Link
                         href={project.githubUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 border-2 border-neutral-200 text-sm font-semibold rounded-lg text-neutral-700 bg-white hover:bg-neutral-50 hover:border-primary-300 transition-all"
+                        className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 border-2 border-neutral-200 dark:border-neutral-700 text-sm font-semibold rounded-lg text-neutral-700 dark:text-neutral-300 bg-white dark:bg-neutral-800 hover:bg-neutral-50 dark:hover:bg-neutral-700 hover:border-primary-300 dark:hover:border-primary-500 transition-all"
                       >
                         <Github className="w-4 h-4" />
                         GitHub
@@ -181,7 +181,7 @@ export default function ProjectsPage() {
                     )}
                     {(!project.githubUrl || isPlaceholder(project.githubUrl)) &&
                       !project.demoUrl && (
-                        <span className="flex-1 inline-flex items-center justify-center px-4 py-2.5 border-2 border-neutral-200 text-sm font-medium rounded-lg text-neutral-400 bg-neutral-50">
+                        <span className="flex-1 inline-flex items-center justify-center px-4 py-2.5 border-2 border-neutral-200 dark:border-neutral-700 text-sm font-medium rounded-lg text-neutral-400 dark:text-neutral-500 bg-neutral-50 dark:bg-neutral-800">
                           Yakında...
                         </span>
                       )}
@@ -189,7 +189,7 @@ export default function ProjectsPage() {
                   {project.blogSlug && (
                     <Link
                       href={`/blog/${project.blogSlug}`}
-                      className="text-sm text-primary-600 hover:text-primary-700 font-semibold text-center hover:underline"
+                      className="text-sm text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 font-semibold text-center hover:underline"
                     >
                       İlgili blog yazısı →
                     </Link>

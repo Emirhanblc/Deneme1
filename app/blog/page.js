@@ -49,14 +49,14 @@ export default function BlogPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-white py-20 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-white dark:bg-neutral-950 py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
         <div className="text-center mb-16 animate-fade-in">
-          <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-neutral-900 tracking-tight mb-6">
+          <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-neutral-900 dark:text-neutral-100 tracking-tight mb-6">
             Tüm Yazılar
           </h1>
-          <p className="text-xl text-neutral-600 max-w-3xl mx-auto leading-relaxed-plus">
+          <p className="text-xl text-neutral-600 dark:text-neutral-400 max-w-3xl mx-auto leading-relaxed-plus">
             Sistem yönetimi, backend geliştirme ve güvenlik üzerine teknik
             yazılar. Production ortamlarından gerçek çözümler.
           </p>
@@ -69,11 +69,11 @@ export default function BlogPage() {
             return (
               <article
                 key={index}
-                className="group rounded-2xl border border-neutral-200 bg-white p-8 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 animate-slide-up"
+                className="group rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 text-neutral-900 dark:text-neutral-100 p-8 shadow-sm hover:bg-neutral-50 dark:hover:bg-neutral-800 hover:text-neutral-900 dark:hover:text-neutral-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 animate-slide-up"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 {/* Icon Badge */}
-                <div className="inline-flex items-center gap-2 mb-6 px-3 py-2 rounded-lg bg-primary-50 text-primary-600">
+                <div className="inline-flex items-center gap-2 mb-6 px-3 py-2 rounded-lg bg-primary-50 dark:bg-primary-950/30 text-primary-600 dark:text-primary-400">
                   <IconComponent className="w-5 h-5" />
                   <span className="text-xs font-mono font-semibold uppercase tracking-wider">
                     {post.category}
@@ -81,18 +81,18 @@ export default function BlogPage() {
                 </div>
 
                 {/* Title */}
-                <h2 className="font-heading text-2xl font-bold text-neutral-900 mb-4 group-hover:text-primary-600 transition-colors leading-tight">
+                <h2 className="font-heading text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-4 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors leading-tight">
                   <Link href={post.href}>{post.title}</Link>
                 </h2>
 
                 {/* Excerpt */}
-                <p className="text-neutral-600 mb-6 leading-relaxed-plus line-clamp-2">
+                <p className="text-neutral-600 dark:text-neutral-400 group-hover:text-neutral-600 dark:group-hover:text-neutral-400 mb-6 leading-relaxed-plus line-clamp-2">
                   {post.excerpt}
                 </p>
 
                 {/* Footer */}
-                <div className="flex items-center justify-between pt-6 border-t border-neutral-100">
-                  <div className="flex items-center gap-4 text-sm text-neutral-500">
+                <div className="flex items-center justify-between pt-6 border-t border-neutral-100 dark:border-neutral-800">
+                  <div className="flex items-center gap-4 text-sm text-neutral-500 dark:text-neutral-500 group-hover:text-neutral-500 dark:group-hover:text-neutral-500">
                     <time className="flex items-center gap-1.5 font-medium">
                       <Calendar className="w-4 h-4" />
                       {post.date}
@@ -104,7 +104,7 @@ export default function BlogPage() {
                   </div>
                   <Link
                     href={post.href}
-                    className="text-primary-600 hover:text-primary-700 font-semibold text-sm flex items-center gap-1.5 group-hover:gap-2.5 transition-all"
+                    className="text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 font-semibold text-sm flex items-center gap-1.5 group-hover:gap-2.5 transition-all"
                   >
                     Devamını oku
                     <ArrowRight className="w-4 h-4" />
