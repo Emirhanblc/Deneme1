@@ -1,9 +1,15 @@
 import Stripe from 'stripe';
+import { prisma } from './prisma';
 
 // Initialize Stripe with the secret key
-export const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: '2023-10-16',
-});
+// Note: During build time on Vercel, environment variables may not be available
+// The webhook and API routes validate the key at runtime before use
+export const stripe = process.env.STRIPE_SECRET_KEY
+  ? new Stripe(process.env.STRIPE_SECRET_KEY, {
+      apiVersion: '2023-10-16',
+    })
+  : // Fallback for build time - will be validated at runtime in API routes
+    ({} as unknown as Stripe);
 
 // Subscription plans configuration
 export const PLANS = {
@@ -34,6 +40,11 @@ export async function createCheckoutSession(
   successUrl: string,
   cancelUrl: string
 ) {
+  // Validate Stripe is initialized
+  if (!process.env.STRIPE_SECRET_KEY) {
+    throw new Error('Stripe is not configured. STRIPE_SECRET_KEY is required.');
+  }
+
   try {
     // Get or create Stripe customer
     const user = await prisma.user.findUnique({
@@ -269,6 +280,3 @@ async function handleInvoicePaymentFailed(invoice: Stripe.Invoice) {
   // Optionally send email notification about failed payment
   console.log(`Payment failed for user ${userId}`);
 }
-
-// Import Prisma client
-import { prisma } from './prisma';

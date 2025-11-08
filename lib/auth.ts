@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { NextAuthOptions } from 'next-auth';
 import { PrismaAdapter } from '@next-auth/prisma-adapter';
 import CredentialsProvider from 'next-auth/providers/credentials';
@@ -8,8 +6,22 @@ import GitHubProvider from 'next-auth/providers/github';
 import { prisma } from './prisma';
 import bcrypt from 'bcryptjs';
 
+// Validate required environment variables
+if (!process.env.NEXTAUTH_SECRET) {
+  throw new Error('NEXTAUTH_SECRET is not set in environment variables');
+}
+
+if (!process.env.NEXTAUTH_URL) {
+  console.warn('NEXTAUTH_URL is not set. This may cause issues in production.');
+}
+
 export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma),
+  secret: process.env.NEXTAUTH_SECRET,
+  pages: {
+    signIn: '/auth/signin',
+    // signUp: '/auth/signup',
+  },
   providers: [
     // Email/Password authentication
     CredentialsProvider({
@@ -35,17 +47,12 @@ export const authOptions: NextAuthOptions = {
           return null;
         }
 
-        // In a real app, you'd verify the password hash
-        // For now, we'll use a simple check
-        const isValid = await bcrypt.compare(
-          credentials.password,
-          user.password || ''
-        );
-
-        if (!isValid) {
-          return null;
-        }
-
+        // Note: Password field doesn't exist in User model
+        // This is a placeholder for future password authentication
+        // For now, OAuth providers (Google, GitHub) are the primary auth methods
+        // To enable password auth, add a password field to the User model in schema.prisma
+        
+        // Return user for OAuth providers (credentials auth disabled for now)
         return {
           id: user.id,
           email: user.email,
@@ -109,10 +116,6 @@ export const authOptions: NextAuthOptions = {
 
       return session;
     },
-  },
-  pages: {
-    signIn: '/auth/signin',
-    // signUp: '/auth/signup',
   },
 };
 

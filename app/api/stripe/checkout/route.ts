@@ -3,6 +3,9 @@ import { getServerSession } from 'next-auth';
 import { authOptions } from '../../../../lib/auth';
 import { createCheckoutSession } from '../../../../lib/stripe';
 
+// Force Node.js runtime (required for Prisma)
+export const runtime = 'nodejs';
+
 export async function POST(request: NextRequest) {
   try {
     // Get the user session
