@@ -35,6 +35,20 @@ export default function Home() {
           Bilgisayar Mühendisliği öğrencisiyim. Güvenlik, yedekleme altyapısı ve
           network konularına odaklanıyorum.
         </p>
+        <div className="mt-6 flex flex-wrap gap-3 justify-center">
+          <Link
+            href="/blog"
+            className="inline-flex items-center rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700"
+          >
+            Blog Yazılarını Oku
+          </Link>
+          <Link
+            href="/contact"
+            className="inline-flex items-center rounded-md border border-blue-600 px-4 py-2 text-sm font-medium text-blue-600 hover:bg-blue-50"
+          >
+            Abone Ol / İletişime Geç
+          </Link>
+        </div>
       </section>
 
       {/* Recent Posts Section */}
@@ -93,7 +107,7 @@ export default function Home() {
               GitHub'da İncele →
             </Link>
             <Link
-              href="/blog/kubernetes-monitoring"
+              href="/blog"
               className="cta-button secondary"
               style={{
                 background: 'rgba(255, 255, 255, 0.2)',
@@ -101,7 +115,7 @@ export default function Home() {
                 borderColor: 'white'
               }}
             >
-              Blog Yazısını Oku →
+              Blog Yazılarını Oku →
             </Link>
           </div>
         </div>
@@ -117,20 +131,14 @@ export default function Home() {
             abone olun.
           </p>
           <div className="newsletter-form">
-            <form
-              action="https://yourdomain.convertkit.com/forms/123456/subscriptions"
-              method="post"
-              className="newsletter-form-inner"
-            >
-              <input
-                type="email"
-                name="email"
-                placeholder="E-posta adresiniz"
-                required
-                aria-label="E-posta adresiniz"
-              />
-              <button type="submit" className="cta-button">Abone Ol</button>
-            </form>
+            <div className="newsletter-form-inner">
+              <Link
+                href="/contact"
+                className="cta-button inline-block text-center"
+              >
+                İletişime Geç / Abone Ol
+              </Link>
+            </div>
             <p className="newsletter-note">
               Haftalık sistem yönetimi ipuçları ve backend geliştirme
               rehberleri. Spam yok, sadece değerli içerik.

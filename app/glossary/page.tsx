@@ -304,10 +304,10 @@ export default function GlossaryPage() {
               bildirebilirsiniz.
             </p>
             <Link
-              href="/contact"
+              href="/contact?type=glossary"
               className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary hover:bg-primary/90 transition-colors"
             >
-              Terim Öner
+              Eksik bir terim mi var? Öner →
             </Link>
           </div>
         </div>

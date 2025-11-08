@@ -10,6 +10,7 @@ const scripts = [
     description:
       'VMware vSphere ortamında sanal makinelerin otomatik yedeklenmesi için Bash script.',
     language: 'bash',
+    githubUrl: 'https://github.com/yourusername/vmware-backup',
     code: `#!/bin/bash
 
 # VMware VM Backup Script
@@ -116,9 +117,17 @@ main() {
 # Execute main function
 main "$@"`,
     tags: ['vmware', 'backup', 'bash', 'automation'],
-    usage:
-      'Bu script VMware vSphere ortamında çalışır. Öncelikle govc aracının kurulu olması gerekir.',
-    requirements: ['govc', 'bash 4.0+', 'vSphere permissions'],
+    usage: [
+      'Bu script VMware vSphere ortamında çalışır.',
+      'Öncelikle govc aracının kurulu olması gerekir.',
+      'Script çalıştırmadan önce GOVC_URL ve GOVC_USERNAME ortam değişkenlerini ayarlayın.',
+    ],
+    requirements: [
+      'govc CLI aracı',
+      'bash 4.0+',
+      'vSphere yönetici izinleri',
+      'Yeterli disk alanı',
+    ],
   },
   {
     id: 'log-cleanup',
@@ -126,6 +135,7 @@ main "$@"`,
     description:
       'Sistem log dosyalarını temizleyen ve arşivleyen Python script.',
     language: 'python',
+    githubUrl: 'https://github.com/yourusername/log-cleanup',
     code: `#!/usr/bin/env python3
 """
 Log File Cleanup and Archiving Script
@@ -253,9 +263,17 @@ def main():
 if __name__ == "__main__":
     main()`,
     tags: ['python', 'log', 'cleanup', 'automation'],
-    usage:
+    usage: [
       'python3 log_cleanup.py --retention 30 --archive-dir /var/log/archive',
-    requirements: ['Python 3.6+', 'gzip module'],
+      'Script root yetkisi ile çalıştırılmalıdır.',
+      'Retention gün sayısını ihtiyacınıza göre ayarlayın.',
+    ],
+    requirements: [
+      'Python 3.6+',
+      'gzip modülü (standart kütüphane)',
+      'Root yetkileri',
+      'Yeterli disk alanı',
+    ],
   },
 ];
 
@@ -343,22 +361,52 @@ export default function ScriptsPage() {
                 {/* Usage and Requirements */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
                   <div>
-                    <h4 className="font-semibold text-foreground mb-1">
+                    <h4 className="font-semibold text-foreground mb-2">
                       Kullanım:
                     </h4>
-                    <code className="bg-accent px-2 py-1 rounded text-foreground">
-                      {script.usage}
-                    </code>
+                    {Array.isArray(script.usage) ? (
+                      <ul className="list-disc list-inside space-y-1 text-muted-foreground">
+                        {script.usage.map((item, idx) => (
+                          <li key={idx}>{item}</li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <code className="bg-accent px-2 py-1 rounded text-foreground">
+                        {script.usage}
+                      </code>
+                    )}
                   </div>
                   <div>
-                    <h4 className="font-semibold text-foreground mb-1">
+                    <h4 className="font-semibold text-foreground mb-2">
                       Gereksinimler:
                     </h4>
-                    <p className="text-muted-foreground">
-                      {script.requirements}
-                    </p>
+                    {Array.isArray(script.requirements) ? (
+                      <ul className="list-disc list-inside space-y-1 text-muted-foreground">
+                        {script.requirements.map((req, idx) => (
+                          <li key={idx}>{req}</li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <p className="text-muted-foreground">
+                        {script.requirements}
+                      </p>
+                    )}
                   </div>
                 </div>
+
+                {/* GitHub Link */}
+                {script.githubUrl && (
+                  <div className="mt-4">
+                    <a
+                      href={script.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm text-blue-600 hover:underline inline-flex items-center"
+                    >
+                      View on GitHub →
+                    </a>
+                  </div>
+                )}
               </div>
 
               {/* Code Block */}
@@ -410,3 +458,4 @@ export default function ScriptsPage() {
     </div>
   );
 }
+

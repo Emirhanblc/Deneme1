@@ -1,8 +1,15 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
+import {
+  CONTACT_EMAIL,
+  CONTACT_LINKEDIN,
+  CONTACT_GITHUB,
+} from '../../lib/contactInfo';
 
 export default function ContactPage() {
+  const searchParams = useSearchParams();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -13,6 +20,14 @@ export default function ContactPage() {
     'idle' | 'loading' | 'success' | 'error'
   >('idle');
   const [errorMessage, setErrorMessage] = useState('');
+
+  // Handle query parameter for topic preselection
+  useEffect(() => {
+    const type = searchParams.get('type');
+    if (type === 'glossary') {
+      setFormData((prev) => ({ ...prev, subject: 'glossary' }));
+    }
+  }, [searchParams]);
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -41,16 +56,16 @@ export default function ContactPage() {
 
       const data = await response.json();
 
-      if (response.ok) {
+      if (response.ok && data.success) {
         setStatus('success');
         setFormData({ name: '', email: '', subject: '', message: '' });
       } else {
         setStatus('error');
-        setErrorMessage(data.error || 'Something went wrong');
+        setErrorMessage(data.error || 'Bir hata oluştu. Lütfen tekrar deneyin.');
       }
     } catch (error) {
       setStatus('error');
-      setErrorMessage('Network error. Please try again.');
+      setErrorMessage('Ağ hatası. Lütfen tekrar deneyin.');
     }
   };
 
@@ -95,9 +110,12 @@ export default function ContactPage() {
                     <h3 className="text-lg font-semibold text-foreground">
                       Email
                     </h3>
-                    <p className="text-muted-foreground">
-                      your.email@example.com
-                    </p>
+                    <a
+                      href={`mailto:${CONTACT_EMAIL}`}
+                      className="text-muted-foreground hover:text-primary"
+                    >
+                      {CONTACT_EMAIL}
+                    </a>
                     <p className="text-sm text-muted-foreground">
                       Genellikle 24 saat içinde yanıt veriyorum
                     </p>
@@ -124,9 +142,14 @@ export default function ContactPage() {
                     <h3 className="text-lg font-semibold text-foreground">
                       LinkedIn
                     </h3>
-                    <p className="text-muted-foreground">
-                      linkedin.com/in/yourprofile
-                    </p>
+                    <a
+                      href={CONTACT_LINKEDIN}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-muted-foreground hover:text-primary"
+                    >
+                      {CONTACT_LINKEDIN.replace('https://www.', '')}
+                    </a>
                     <p className="text-sm text-muted-foreground">
                       Profesyonel bağlantılar için
                     </p>
@@ -147,9 +170,14 @@ export default function ContactPage() {
                     <h3 className="text-lg font-semibold text-foreground">
                       GitHub
                     </h3>
-                    <p className="text-muted-foreground">
-                      github.com/yourusername
-                    </p>
+                    <a
+                      href={CONTACT_GITHUB}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-muted-foreground hover:text-primary"
+                    >
+                      {CONTACT_GITHUB.replace('https://github.com/', '')}
+                    </a>
                     <p className="text-sm text-muted-foreground">
                       Open source projeler ve katkılar
                     </p>
@@ -251,6 +279,7 @@ export default function ContactPage() {
                     <option value="technical">Teknik Soru</option>
                     <option value="collaboration">İş Birliği</option>
                     <option value="contribution">Open Source Katkı</option>
+                    <option value="glossary">Sözlük Terim Önerisi</option>
                     <option value="other">Diğer</option>
                   </select>
                 </div>

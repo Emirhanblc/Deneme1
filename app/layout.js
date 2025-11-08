@@ -5,13 +5,15 @@ import Layout from '../components/Layout'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'Blog - Sistem Yönetimi ve Web Backend',
-  description: 'Production ortamlarında karşılaştığım sorunları ve çözümlerini paylaşıyorum. Sistem yönetimi, backend geliştirme ve güvenlik üzerine teknik yazılar.',
+  title: 'Sistem Yönetimi & Web Backend Blogu',
+  description:
+    'Linux, network, sistem yönetimi ve web backend üzerine teknik makaleler, scriptler ve projeler.',
   keywords: 'sistem yönetimi, backend geliştirme, linux, devops, güvenlik',
-  authors: [{ name: 'Your Name' }],
+  authors: [{ name: 'Emirhan Balcı' }],
   openGraph: {
-    title: 'Blog - Sistem Yönetimi ve Web Backend',
-    description: 'Production ortamlarında karşılaştığım sorunları ve çözümlerini paylaşıyorum.',
+    title: 'Sistem Yönetimi & Web Backend Blogu',
+    description:
+      'Linux, network, sistem yönetimi ve web backend üzerine teknik makaleler, scriptler ve projeler.',
     type: 'website',
     locale: 'tr_TR',
   },

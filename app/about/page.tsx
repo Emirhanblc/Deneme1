@@ -2,6 +2,12 @@ import React from 'react';
 import Link from 'next/link';
 
 // This page uses Static Site Generation (SSG) for optimal performance
+export const metadata = {
+  title: 'Hakkımda – Emirhan Balcı',
+  description:
+    "Sistem yönetimi ve web backend alanında çalışan Emirhan Balcı'nın deneyimi, odağı ve projeleri.",
+};
+
 export default function AboutPage() {
   const skills = {
     expert: [
