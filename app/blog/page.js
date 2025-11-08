@@ -38,34 +38,104 @@ export default function BlogPage() {
   ];
 
   return (
-    <div className="blog-page">
-      <div className="page-header">
-        <h1 className="page-title">Tüm Yazılar</h1>
-        <p className="page-description">
-          Sistem yönetimi, backend geliştirme ve güvenlik üzerine teknik
-          yazılar.
-        </p>
-      </div>
+    <div className="min-h-screen bg-slate-50 py-16 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto">
+        {/* Header Section */}
+        <div className="text-center mb-12 animate-fade-in">
+          <h1 className="text-4xl sm:text-5xl font-bold text-slate-900 tracking-tight mb-4">
+            Tüm Yazılar
+          </h1>
+          <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+            Sistem yönetimi, backend geliştirme ve güvenlik üzerine teknik
+            yazılar.
+          </p>
+        </div>
 
-      <div className="posts-list">
-        {blogPosts.map((post, index) => (
-          <article key={index} className="post-card">
-            <div className="post-meta">
-              <time dateTime="2025-04-15" className="muted">
-                {post.date}
-              </time>
-              <span className="separator">·</span>
-              <span className="badge">{post.category}</span>
-            </div>
-            <h2 className="post-title">
-              <Link href={post.href}>{post.title}</Link>
-            </h2>
-            <p className="post-excerpt">{post.excerpt}</p>
-            <div className="post-footer">
-              <span className="read-time muted">{post.readTime}</span>
-            </div>
-          </article>
-        ))}
+        {/* Blog Posts Grid */}
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-2">
+          {blogPosts.map((post, index) => (
+            <article
+              key={index}
+              className="group rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 animate-slide-up"
+              style={{ animationDelay: `${index * 100}ms` }}
+            >
+              {/* Meta Info */}
+              <div className="flex items-center gap-3 mb-4">
+                <time className="text-sm text-slate-500 font-medium flex items-center gap-1">
+                  <svg
+                    className="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                    />
+                  </svg>
+                  {post.date}
+                </time>
+                <span className="text-slate-300">·</span>
+                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-primary-100 text-primary-700">
+                  {post.category}
+                </span>
+              </div>
+
+              {/* Title */}
+              <h2 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-primary-600 transition-colors">
+                <Link href={post.href} className="hover:underline">
+                  {post.title}
+                </Link>
+              </h2>
+
+              {/* Excerpt */}
+              <p className="text-slate-600 mb-4 leading-relaxed line-clamp-2">
+                {post.excerpt}
+              </p>
+
+              {/* Footer */}
+              <div className="flex items-center justify-between pt-4 border-t border-slate-100">
+                <span className="text-sm text-slate-500 flex items-center gap-1">
+                  <svg
+                    className="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                  {post.readTime}
+                </span>
+                <Link
+                  href={post.href}
+                  className="text-primary-600 hover:text-primary-700 font-medium text-sm flex items-center gap-1 group-hover:gap-2 transition-all"
+                >
+                  Devamını oku
+                  <svg
+                    className="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M14 5l7 7m0 0l-7 7m7-7H3"
+                    />
+                  </svg>
+                </Link>
+              </div>
+            </article>
+          ))}
+        </div>
       </div>
     </div>
   );
