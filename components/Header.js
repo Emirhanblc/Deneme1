@@ -38,7 +38,7 @@ export default function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-50 border-b border-neutral-200 dark:border-neutral-800 bg-white/90 dark:bg-neutral-950/90 backdrop-blur-md supports-[backdrop-filter]:bg-white/80 dark:supports-[backdrop-filter]:bg-neutral-950/80 transition-shadow duration-200 ${
+      className={`sticky top-0 z-50 border-b border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 backdrop-blur supports-[backdrop-filter]:bg-opacity-90 transition-all duration-200 ${
         scrolled ? 'shadow-sm' : ''
       }`}
     >
@@ -49,13 +49,13 @@ export default function Header() {
             href="/"
             className="inline-flex items-center gap-2.5 group transition-transform hover:scale-[1.02]"
           >
-            <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-neutral-900 dark:bg-neutral-100 text-neutral-50 dark:text-neutral-900 text-sm font-mono font-bold group-hover:bg-primary-600 dark:group-hover:bg-primary-500 transition-colors">
+            <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 text-sm font-mono font-bold group-hover:bg-primary-600 dark:group-hover:bg-primary-500 transition-colors">
               &gt;_
             </span>
-            <span className="hidden sm:block text-sm font-semibold tracking-tight text-neutral-900 dark:text-neutral-100">
+            <span className="hidden sm:block text-sm font-semibold tracking-tight text-slate-900 dark:text-white">
               Sistem Yönetimi & Web Backend
             </span>
-            <span className="sm:hidden text-sm font-semibold tracking-tight text-neutral-900 dark:text-neutral-100">
+            <span className="sm:hidden text-sm font-semibold tracking-tight text-slate-900 dark:text-white">
               SysAdmin Blog
             </span>
           </Link>
@@ -68,15 +68,15 @@ export default function Header() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className={`relative px-3 py-2 text-sm font-medium transition-all duration-200 ease-out rounded-md ${
+                    className={`relative px-3 py-2 text-sm font-medium transition-all duration-200 ease-in-out rounded-md ${
                       active
-                        ? 'text-primary-600 dark:text-primary-400'
-                        : 'text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 hover:bg-neutral-100 dark:hover:bg-neutral-900'
+                        ? 'text-slate-900 dark:text-white'
+                        : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800'
                     }`}
                   >
                     {link.label}
                     {active && (
-                      <span className="absolute inset-x-2 -bottom-px h-0.5 rounded-full bg-primary-500 dark:bg-primary-400" />
+                      <span className="absolute inset-x-2 -bottom-1 h-0.5 rounded-full bg-primary-500 dark:bg-primary-400" />
                     )}
                   </Link>
                 </li>
@@ -91,7 +91,7 @@ export default function Header() {
         </div>
 
         {/* Mobile Navigation */}
-        <div className="md:hidden border-t border-neutral-200 dark:border-neutral-800 py-3">
+        <div className="md:hidden border-t border-slate-200 dark:border-slate-800 py-3">
           <ul className="flex flex-wrap items-center gap-2">
             {navLinks.map((link) => {
               const active = isActive(link.href);
@@ -99,10 +99,10 @@ export default function Header() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className={`relative inline-block px-3 py-1.5 text-xs font-medium transition-all duration-200 ease-out rounded-md ${
+                    className={`relative inline-block px-3 py-1.5 text-xs font-medium transition-all duration-200 ease-in-out rounded-md ${
                       active
-                        ? 'text-primary-600 dark:text-primary-400 bg-primary-50 dark:bg-primary-950/30'
-                        : 'text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 hover:bg-neutral-100 dark:hover:bg-neutral-900'
+                        ? 'text-slate-900 dark:text-white bg-slate-100 dark:bg-slate-800'
+                        : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800'
                     }`}
                   >
                     {link.label}

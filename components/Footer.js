@@ -25,21 +25,21 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="mt-20 border-t bg-neutral-50 dark:bg-neutral-950 border-neutral-200 dark:border-neutral-800">
-      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+    <footer className="mt-16 border-t bg-slate-50 dark:bg-slate-950 border-slate-200 dark:border-slate-800">
+      <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
         {/* Main Footer Content - 3 Columns */}
         <div className="grid gap-8 md:grid-cols-3">
           {/* Column 1: About / Contact */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-neutral-900 dark:bg-neutral-100 text-neutral-50 dark:text-neutral-900 text-xs font-mono font-bold">
+              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 text-xs font-mono font-bold">
                 &gt;_
               </div>
-              <span className="font-semibold text-neutral-900 dark:text-neutral-100">
+              <span className="font-semibold text-slate-900 dark:text-white">
                 {SITE_CONFIG.author.name}
               </span>
             </div>
-            <p className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed mb-4">
+            <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
               {SITE_CONFIG.site.tagline}. Production ortamlarında karşılaştığım
               gerçek sorunları ve çözümlerini paylaşıyorum.
             </p>
@@ -51,7 +51,7 @@ export default function Footer() {
                   href={SITE_CONFIG.contact.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="h-9 w-9 inline-flex items-center justify-center rounded-full border border-neutral-300 dark:border-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800 hover:border-primary-500 dark:hover:border-primary-500 transition-all duration-200 text-neutral-600 dark:text-neutral-400 hover:text-primary-600 dark:hover:text-primary-400"
+                  className="h-9 w-9 inline-flex items-center justify-center rounded-full border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 hover:border-primary-500 dark:hover:border-primary-500 transition-all duration-200 text-slate-600 dark:text-slate-400 hover:text-primary-600 dark:hover:text-primary-400"
                   aria-label="GitHub"
                 >
                   <Github className="w-4 h-4" />
@@ -62,7 +62,7 @@ export default function Footer() {
                   href={SITE_CONFIG.contact.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="h-9 w-9 inline-flex items-center justify-center rounded-full border border-neutral-300 dark:border-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800 hover:border-primary-500 dark:hover:border-primary-500 transition-all duration-200 text-neutral-600 dark:text-neutral-400 hover:text-primary-600 dark:hover:text-primary-400"
+                  className="h-9 w-9 inline-flex items-center justify-center rounded-full border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 hover:border-primary-500 dark:hover:border-primary-500 transition-all duration-200 text-slate-600 dark:text-slate-400 hover:text-primary-600 dark:hover:text-primary-400"
                   aria-label="LinkedIn"
                 >
                   <Linkedin className="w-4 h-4" />
@@ -71,7 +71,7 @@ export default function Footer() {
               {!isPlaceholder(SITE_CONFIG.contact.email) && (
                 <a
                   href={`mailto:${SITE_CONFIG.contact.email}`}
-                  className="h-9 w-9 inline-flex items-center justify-center rounded-full border border-neutral-300 dark:border-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800 hover:border-primary-500 dark:hover:border-primary-500 transition-all duration-200 text-neutral-600 dark:text-neutral-400 hover:text-primary-600 dark:hover:text-primary-400"
+                  className="h-9 w-9 inline-flex items-center justify-center rounded-full border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 hover:border-primary-500 dark:hover:border-primary-500 transition-all duration-200 text-slate-600 dark:text-slate-400 hover:text-primary-600 dark:hover:text-primary-400"
                   aria-label="Email"
                 >
                   <Mail className="w-4 h-4" />
@@ -82,15 +82,15 @@ export default function Footer() {
 
           {/* Column 2: Quick Links */}
           <div>
-            <h3 className="font-semibold text-neutral-900 dark:text-neutral-100 mb-4 text-sm uppercase tracking-wider">
-              Hızlı Bağlantılar
+            <h3 className="font-semibold text-slate-900 dark:text-white mb-4 text-sm uppercase tracking-wider">
+              Quick Links
             </h3>
             <ul className="space-y-2.5">
               {quickLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-neutral-600 dark:text-neutral-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200 inline-flex items-center gap-1 group"
+                    className="text-sm text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:underline transition-colors duration-200 inline-flex items-center gap-1 group"
                   >
                     <span className="group-hover:translate-x-0.5 transition-transform">
                       {link.label}
@@ -103,49 +103,30 @@ export default function Footer() {
 
           {/* Column 3: Tech Stack & Legal */}
           <div>
-            <h3 className="font-semibold text-neutral-900 dark:text-neutral-100 mb-4 text-sm uppercase tracking-wider">
-              Teknoloji
+            <h3 className="font-semibold text-slate-900 dark:text-white mb-4 text-sm uppercase tracking-wider">
+              Legal & Technical
             </h3>
-            <div className="flex flex-wrap gap-2 mb-6">
-              {techStack.map((tech) => (
-                <span
-                  key={tech}
-                  className="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-mono font-medium bg-neutral-200 dark:bg-neutral-900 text-neutral-700 dark:text-neutral-300 border border-neutral-300 dark:border-neutral-800"
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
 
             {/* Legal Links */}
-            <div className="space-y-2">
+            <div className="space-y-2 mb-4">
               <Link
                 href="#"
-                className="text-xs text-neutral-500 dark:text-neutral-500 hover:text-neutral-700 dark:hover:text-neutral-300 transition-colors block"
+                className="text-sm text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors block"
               >
                 Gizlilik Politikası
               </Link>
               <Link
                 href="#"
-                className="text-xs text-neutral-500 dark:text-neutral-500 hover:text-neutral-700 dark:hover:text-neutral-300 transition-colors block"
+                className="text-sm text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors block"
               >
                 Kullanım Koşulları
               </Link>
             </div>
-          </div>
-        </div>
 
-        {/* Bottom Bar */}
-        <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-neutral-200 dark:border-neutral-800 pt-8 text-xs text-neutral-500 dark:text-neutral-500 sm:flex-row">
-          <div className="flex items-center gap-2">
-            <span>
-              © {year} {SITE_CONFIG.author.name}.
-            </span>
-            <span className="hidden sm:inline">Tüm hakları saklıdır.</span>
-          </div>
-          <div className="flex items-center gap-1.5 text-neutral-400 dark:text-neutral-600">
-            <Terminal className="w-3.5 h-3.5" />
-            <span>Built with Next.js & Tailwind CSS</span>
+            <p className="text-xs text-slate-500 dark:text-slate-400 mt-4">
+              © {year} {SITE_CONFIG.author.name}. Built with Next.js, React,
+              Tailwind, and Vercel.
+            </p>
           </div>
         </div>
       </div>

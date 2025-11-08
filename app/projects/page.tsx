@@ -122,7 +122,7 @@ export default function ProjectsPage() {
             return (
               <div
                 key={project.id}
-                className="group rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 text-neutral-900 dark:text-neutral-100 p-8 shadow-sm hover:bg-neutral-50 dark:hover:bg-neutral-800 hover:text-neutral-900 dark:hover:text-neutral-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 animate-slide-up"
+                className="group rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 p-4 md:p-5 shadow-sm hover:bg-slate-50 hover:text-slate-900 dark:hover:bg-slate-800 dark:hover:text-slate-100 hover:-translate-y-0.5 hover:shadow-sm transition-all duration-200 ease-in-out animate-slide-up"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 {/* Status Badge */}
@@ -136,12 +136,12 @@ export default function ProjectsPage() {
                 </div>
 
                 {/* Title */}
-                <h3 className="font-heading text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-4 leading-tight group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+                <h3 className="font-heading text-2xl font-bold text-slate-900 dark:text-slate-100 mb-4 leading-tight group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
                   {project.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-neutral-600 dark:text-neutral-400 mb-6 leading-relaxed-plus line-clamp-3 group-hover:text-neutral-600 dark:group-hover:text-neutral-400">
+                <p className="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed-plus line-clamp-3 group-hover:text-slate-600 dark:group-hover:text-slate-400">
                   {project.description}
                 </p>
 
@@ -155,14 +155,14 @@ export default function ProjectsPage() {
                 </div>
 
                 {/* Action Buttons */}
-                <div className="flex flex-col gap-3 pt-6 border-t border-neutral-100 dark:border-neutral-800">
+                <div className="flex flex-col gap-3 pt-6 border-t border-slate-100 dark:border-slate-800">
                   <div className="flex gap-3">
                     {project.githubUrl && !isPlaceholder(project.githubUrl) && (
                       <Link
                         href={project.githubUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 border-2 border-neutral-200 dark:border-neutral-700 text-sm font-semibold rounded-lg text-neutral-700 dark:text-neutral-300 bg-white dark:bg-neutral-800 hover:bg-neutral-50 dark:hover:bg-neutral-700 hover:border-primary-300 dark:hover:border-primary-500 transition-all"
+                        className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 border-2 border-slate-200 dark:border-slate-700 text-sm font-semibold rounded-lg text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 hover:border-primary-300 dark:hover:border-primary-500 transition-all duration-200"
                       >
                         <Github className="w-4 h-4" />
                         GitHub
@@ -173,7 +173,7 @@ export default function ProjectsPage() {
                         href={project.demoUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 border-2 border-transparent text-sm font-semibold rounded-lg text-white bg-primary-600 hover:bg-primary-700 transition-all"
+                        className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 border-2 border-transparent text-sm font-semibold rounded-lg text-white bg-primary-600 hover:bg-primary-700 transition-all duration-200"
                       >
                         <ExternalLink className="w-4 h-4" />
                         Canlı Demo
@@ -181,7 +181,7 @@ export default function ProjectsPage() {
                     )}
                     {(!project.githubUrl || isPlaceholder(project.githubUrl)) &&
                       !project.demoUrl && (
-                        <span className="flex-1 inline-flex items-center justify-center px-4 py-2.5 border-2 border-neutral-200 dark:border-neutral-700 text-sm font-medium rounded-lg text-neutral-400 dark:text-neutral-500 bg-neutral-50 dark:bg-neutral-800">
+                        <span className="flex-1 inline-flex items-center justify-center px-4 py-2.5 border-2 border-slate-200 dark:border-slate-700 text-sm font-medium rounded-lg text-slate-400 dark:text-slate-500 bg-slate-50 dark:bg-slate-800">
                           Yakında...
                         </span>
                       )}
