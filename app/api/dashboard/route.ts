@@ -30,23 +30,8 @@ export async function GET(request: NextRequest) {
       return NextResponse.json({ error: 'User not found' }, { status: 404 });
     }
 
-    // Get reading progress
-    const readingProgress = await prisma.readingProgress.findMany({
-      where: { userId: session.user.id },
-      include: {
-        user: {
-          select: {
-            name: true,
-            email: true,
-          },
-        },
-      },
-      orderBy: { updatedAt: 'desc' },
-      take: 10,
-    });
-
-    // Get recommendations based on user's reading history
-    const recommendations = await getRecommendations(session.user.id);
+    // Get recommendations (reading progress feature disabled)
+    const recommendations = await getRecommendations();
 
     // Format the response data
     const dashboardData = {
@@ -56,13 +41,7 @@ export async function GET(request: NextRequest) {
         subscriptionEnds: user.subscriptionEnds?.toISOString() || null,
         stripeCustomerId: user.stripeCustomerId,
       },
-      readingProgress: readingProgress.map((progress) => ({
-        contentId: progress.contentId,
-        title: `Article ${progress.contentId}`, // In real app, join with content table
-        progress: progress.progress,
-        completed: progress.completed,
-        updatedAt: progress.updatedAt.toISOString(),
-      })),
+      readingProgress: [], // Reading progress feature disabled
       recommendations,
     };
 
@@ -76,18 +55,10 @@ export async function GET(request: NextRequest) {
   }
 }
 
-// Simple recommendation algorithm based on user's reading history
-async function getRecommendations(userId: string) {
+// Simple recommendation algorithm
+// Reading progress feature is disabled, so returning static recommendations
+async function getRecommendations() {
   try {
-    // Get user's reading history to understand their interests
-    const userProgress = await prisma.readingProgress.findMany({
-      where: { userId },
-      include: {
-        // In a real app, you'd join with content table to get tags/categories
-      },
-      take: 20,
-    });
-
     // For demo purposes, return some sample recommendations
     // In a real app, you'd implement a proper recommendation algorithm
     return [

@@ -25,21 +25,14 @@ export default async function DashboardPage() {
     },
   });
 
-  // Fetch reading progress
-  const readingProgress = await prisma.readingProgress.findMany({
-    where: { userId: session.user.id },
-    orderBy: { updatedAt: 'desc' },
-    take: 5,
-  });
-
-  // Format reading progress data
-  const formattedProgress = readingProgress.map((progress) => ({
-    contentId: progress.contentId,
-    title: `Article ${progress.contentId}`, // In real app, join with content table
-    progress: progress.progress,
-    completed: progress.completed,
-    updatedAt: progress.updatedAt.toISOString(),
-  }));
+  // Reading progress feature is disabled
+  const formattedProgress: Array<{
+    contentId: string;
+    title: string;
+    progress: number;
+    completed: boolean;
+    updatedAt: string;
+  }> = [];
 
   // Get recommendations (simplified for demo)
   const recommendations = [
