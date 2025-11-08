@@ -109,9 +109,10 @@ export default function GlossaryPage() {
 
   // Get unique categories
   const categories = useMemo(() => {
-    const uniqueCategories = [
-      ...new Set(glossaryTerms.map((term) => term.category)),
-    ];
+    const uniqueCategories = Array.from(
+      new Set(glossaryTerms.map((term) => term.category))
+    );
+
     return ['all', ...uniqueCategories];
   }, []);
 
